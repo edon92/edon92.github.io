@@ -133,147 +133,6 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-时间与时间戳" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/08/时间与时间戳/">时间Date</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/08/时间与时间戳/" class="archive-article-date">
-  	<time datetime="2017-04-08T15:12:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>一.时间对象Date</p>
-<p>数字的形式：new Date(2013,4,14,9,45,20);//页就是年月日时分秒<br>字符串的形式：new Date(‘November 27,2013 22:3:0’);//只有一个逗号，前面写月日，后面写年 时分秒，注意空格<br>字符串的形式：new Date(“2014-07-19 20:10:1”);</p>
-<p>未来时间与现在时间的差：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var inow=new Date();</div><div class="line">var iNew=new Date(November 27,2017 20:16:0);</div><div class="line"></div><div class="line">var t=Math.floor((inow-iNew)/1000);</div><div class="line"></div><div class="line">天：Math.floor(t/86400)</div><div class="line">时：Math.floor(t%86400/3600)</div><div class="line">分：Math.floor(t%86400%3600/60)</div><div class="line">秒：t%60</div></pre></td></tr></table></figure></p>
-<p>二.时间戳</p>
-<p>概念：从1970年1月1日至今的毫秒数，可以通过getTime()得到<br>注意是毫秒<br>有时候给出的时间戳是秒</p>
-<p>获取当前时间的时间戳的方法：</p>
-<p>1.var timestamp=Date.parse(new Date());<br>2.var timestamp=(new Date()).valueOf();<br>3.var timestamp=new Date().getTime();<br>第一种：获取的时间戳是把毫秒改成000显示，</p>
-<p>第二种和第三种是获取了当前毫秒的时间戳。</p>
-<p>三.Date对象下的时间转化为字符串的方法</p>
-<pre><code>var inow=new Date();
-console.log(inow.toString());//Sat Apr 22 2017 17:18:20 GMT+0800 (中国标准时间)
-console.log(inow.toLocaleString());//2017/4/22 下午5:18:20
-console.log(inow.toLocaleTimeString());//下午5:18:20
-console.log (inow.toLocaleDateString());//2017/4/22
-</code></pre><p>四.时间戳转化为其他形式日期的写法</p>
-<pre><code>var inow=new Date();
-console.log(inow.toLocaleString().replace(/上午|下午/g,&apos;&apos;));//2017/4/22 10:19:05
-console.log(inow.toLocaleString().replace(/上午|下午/g,&apos;&apos;).replace(/\//g,&apos;-&apos;));//2017-4-22 10:21:54
-</code></pre><p>五.一些常用的时间对象的函数</p>
-<p>getDate()返回月中的天<br>getDay()周中的星期几<br>getFullYear()四位以上数字的年份<br>getHours()时<br>getMinuters()分<br>getSeconds()秒<br>getMonth()月<br>以上函数都有对应的set函数<br>setDate() 设置 Date 对象中月的某一天 (1 ~ 31)。<br>setFullYear() 设置 Date 对象中的年份（四位数字）。<br>setHours() 设置 Date 对象中的小时 (0 ~ 23)。<br>setMinutes() 设置 Date 对象中的分钟 (0 ~ 59)。<br>setMonth() 设置 Date 对象中月份 (0 ~ 11)。<br>setSeconds() 设置 Date 对象中的秒钟 (0 ~ 59)。<br>setTime() setTime() 方法以毫秒设置 Date 对象。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/08/时间与时间戳/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-淘宝放大镜效果" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/08/淘宝放大镜效果/">常见排序方法</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/08/淘宝放大镜效果/" class="archive-article-date">
-  	<time datetime="2017-04-07T18:23:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&lt;!doctype html&gt;</p>
-<html><br><head><br>    <meta charset="UTF-8"><br>    <title>放大镜</title><br>    <style><br>        <em> {<br>            margin: 0;<br>            padding: 0<br>        }<br>        body{<br>            width: 2000px;<br>        }<br>        #demo {<br>            display: block;<br>            width: 400px;<br>            height: 255px;<br>            margin: 50px;<br>            position: relative;<br>            border: 1px solid #ccc;<br>        }<br>        #small-box {<br>            position: relative;<br>            z-index: 1;<br>        }<br>        #float-box {<br>            display: none;<br>            width: 160px;<br>            height: 120px;<br>            position: absolute;<br>            background: #ffffcc;<br>            border: 1px solid #ccc;<br>            filter: alpha(opacity=50);<br>            opacity: 0.5;<br>        }<br>        #mark {<br>            position: absolute;<br>            display: block;<br>            width: 400px;<br>            height: 255px;<br>            background-color: #fff;<br>            filter: alpha(opacity=0);<br>            opacity: 0;<br>            z-index: 10;<br>        }<br>        #big-box {<br>            display: none;<br>            position: absolute;<br>            top: 0;<br>            left: 460px;<br>            width: 400px;<br>            height: 300px;<br>            overflow: hidden;<br>            border: 1px solid #ccc;<br>            z-index: 1;;<br>        }<br>        #big-box img {<br>            position: absolute;<br>        }<br>    </style><br>    <script src="http://libs.baidu.com/jquery/1.10.0/jquery.min.js"></script><br>    <script><br>        //页面加载完毕后执行<br>        window.onload = function () {<br>            var objDemo = document.getElementById(“demo”);<br>            var objSmallBox = document.getElementById(“small-box”);<br>            var objMark = document.getElementById(“mark”);<br>            var objFloatBox = document.getElementById(“float-box”);<br>            var objBigBox = document.getElementById(“big-box”);<br>            var objBigBoxImage = objBigBox.getElementsByTagName(“img”)[0];<br>            objMark.onmouseover = function () {<br>                objFloatBox.style.display = “block”<br>                objBigBox.style.display = “block”<br>            }<br>            objMark.onmouseout = function () {<br>                objFloatBox.style.display = “none”<br>                objBigBox.style.display = “none”<br>            }<br>            console.log(objDemo.clientWidth);<br>            console.log($(objDemo).offset().left);<br>            objMark.onmousemove = function (ev) {<br>                var _event = ev || window.event;  //兼容多个浏览器的event参数模式<br>                var left = _event.clientX - objDemo.offsetLeft - objSmallBox.offsetLeft - objFloatBox.offsetWidth / 2;<br>                var top = _event.clientY - objDemo.offsetTop - objSmallBox.offsetTop - objFloatBox.offsetHeight / 2;<br>                if (left &lt; 0) {<br>                    left = 0;<br>                } else if (left &gt; (objMark.offsetWidth - objFloatBox.offsetWidth)) {<br>                    left = objMark.offsetWidth - objFloatBox.offsetWidth;<br>                }<br>                if (top &lt; 0) {<br>                    top = 0;<br>                } else if (top &gt; (objMark.offsetHeight - objFloatBox.offsetHeight)) {<br>                    top = objMark.offsetHeight - objFloatBox.offsetHeight;<br>                }<br>                objFloatBox.style.left = left + “px”;   //oSmall.offsetLeft的值是相对什么而言<br>                objFloatBox.style.top = top + “px”;<br>                var percentX = left / (objMark.offsetWidth - objFloatBox.offsetWidth);<br>                var percentY = top / (objMark.offsetHeight - objFloatBox.offsetHeight);<br>                objBigBoxImage.style.left = -percentX </em> (objBigBoxImage.offsetWidth - objBigBox.offsetWidth) + “px”;<br>                objBigBoxImage.style.top = -percentY <em> (objBigBoxImage.offsetHeight - objBigBox.offsetHeight) + “px”;<br>            }<br>            $(‘#mark’).bind(“mouseover”,function(ev){<br>                $(‘#float-box’).show();<br>                $(‘#big-box’).show();<br>            });<br>            $(‘#mark’).bind(“mouseout”,function(ev){<br>                 $(‘#float-box’).hide();<br>                 $(‘#big-box’).hide();<br><br>            });<br>            $(‘#mark’).bind(“mousemove”,function(ev){<br>                    var ev=ev||window.event;<br>                    var Left=ev.pageX-$(‘#mark’).offset().left-$(‘#float-box’).width()/2;<br>                    var Top=ev.pageY-$(‘#mark’).offset().top-$(‘#float-box’).height()/2;<br>                    if(Left<0){
-                        Left=0;
-                    }else if(Left>$(‘#mark’).width()-$(‘#float-box’).width()){<br>                        Left=$(‘#mark’).width()-$(‘#float-box’).width();<br>                    }<br>                    if(Top<0){
-                        Top=0;
-                    }else if(Top>$(‘#mark’).height()-$(‘#float-box’).height()){<br>                        Top=$(‘#mark’).height()-$(‘#float-box’).height();<br>                    }<br>                    var percent=$(‘#mark’).width()/$(‘#float-box’).width();<br>                    $(‘#float-box’).css({“left”:Left+”px”,”top”:Top+”px”});<br>                    $(‘#big-box img’).css({“left”:-Left</em>percent+”px”,”top”:-Top*percent+”px”});<br>            });<br>    </script><br></head><br><body><br><div id="demo"><br>    <div id="small-box"><br>        <div id="mark"></div><br>        <div id="float-box"></div><br>        <img src="macbook-small.jpg"><br>    </div><br>    <div id="big-box"><br>        <img src="macbook-big.jpg"><br>    </div><br></div><br></body><br></html>  
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/08/淘宝放大镜效果/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
     <article id="post-ajax过程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -470,9 +329,172 @@ console.log(inow.toLocaleString().replace(/上午|下午/g,&apos;&apos;).replace
 
 
   
+    <article id="post-JS解析代码" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/08/JS解析代码/">JS解释代码</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/08/JS解析代码/" class="archive-article-date">
+  	<time datetime="2017-03-07T18:03:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>js解析器是如何解析代码的</p>
+<p>第一步：“找一些东西” ：var function 参数</p>
+<p>如何解析:<br>a = …<br>所有的变量，在正式运行代码之前，都提前赋了一个值：未定义<br>fn1 = function fn1(){ alert(2); }<br>所有的函数，在正式运行代码之前，都是整个函数块</p>
+<p>JS 的预解析</p>
+<p>遇到重名的：只留一个<br>变量和函数重名了，就只留下函数</p>
+<p>第二步：逐行解读代码：</p>
+<p>表达式：= + - * / % ++ – ! 参数……</p>
+<p>表达式可以修改预解析的值！<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">alert(a);					// function a ()&#123; alert(4); &#125;</div><div class="line">var a = 1;</div><div class="line">alert(a);					// 1</div><div class="line">function a ()&#123; alert(2); &#125;</div><div class="line">alert(a);					// 1</div><div class="line">var a = 3;		</div><div class="line">alert(a);					// 3</div><div class="line">function a ()&#123; alert(4); &#125;</div><div class="line">alert(a);					// 3</div><div class="line">alert( typeof a );</div><div class="line">// a();									// 报错</div></pre></td></tr></table></figure></p>
+<p>var a = 1;<br>function fn1(){<br>    alert(a);                        // undefined<br>    var a = 2;<br>}<br>fn1();<br>alert(a);                            // 1<br>var a = 1;<br>function fn1(){<br>    alert(a);                        // 1<br>    a = 2;<br>}<br>fn1();<br>alert(a);                            // 2<br>```</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/08/JS解析代码/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-记录blog搭建过程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/06/记录blog搭建过程/">记录blog搭建过程</a>
+    </h1>
+  
+
+        
+        <a href="/2017/01/06/记录blog搭建过程/" class="archive-article-date">
+  	<time datetime="2017-01-06T14:32:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>  ##github上搭建hexo博客大致步骤，此步骤默认电脑中已安装node 6以上的版本。</p>
+<ol>
+<li>安装 Hexo<br> 代码： npm install -g hexo</li>
+<li><p>初始化博客根目录<br> 在本地建立 Blog 文件夹，一下git bash 命令都是在文件夹下执行。<br> 代码：    hexo init<br>3.下载主题代码<br> 如：yilia主题<br> 代码：git clone git@github.com:litten/hexo-theme-yilia.git<br>4.修改_config.yml的默认主题。<br> _config.yml文件修改如下：</p>
+<pre><code> theme: yilia
+deploy:
+  type: git
+  repo: git@github.com:edon92/edon92.github.io.git （来源于步骤6里的仓库链接）
+  branch: master
+  //下面代码用于主题的文章搜索功能
+jsonContent:
+    meta: false
+    pages: false
+    posts:
+      title: true
+      date: true
+      path: true
+      text: false
+      raw: false
+      content: false
+      slug: false
+      updated: false
+      comments: false
+      link: false
+      permalink: false
+      excerpt: false
+      categories: false
+      tags: true  
+</code></pre><p>###PS：属性冒号的后面要接一个空格，不然会错</p>
+</li>
+<li><p>修改主题文件夹下的 _config.yml</p>
+</li>
+<li><p>提交带github部分<br> ①首先在github中创建仓库格式为 github用户名.github.io ，例 edon92.github.io<br> ②hexo new “test”     hexo g         git add .      与 git commit -m “initial”  (不知道这几部有无必要)<br> ③执行hexo d,的时候会报错 : ERROR Deployer not found :git</p>
+<pre><code>解决办法 npm install hexo-deployer-git --save
+此时再 hexo d,成功.
+</code></pre><h2 id="如何修改blog内容"><a href="#如何修改blog内容" class="headerlink" title="如何修改blog内容"></a>如何修改blog内容</h2><p> 内容感动》hexo g 》hexo s (测试) 》hexo d     </p>
+</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">码农手记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/01/06/记录blog搭建过程/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
     </nav>
   
 
