@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017 | Edon</title>
+  <title>常见排序方法 | Edon</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Edon">
-<meta property="og:url" content="http://yoursite.com/archives/2017/index.html">
+  <meta name="description" content="继承的几种方法 2017-04-23 一.组合继承 思想：原型链实现对原型的属性和方法的继承，通过借用构造函数实现对实例属性的继承 function SuperType(name){    this.name=name;    this.color=[“red”,”blue”];}SuperType.prototype.sayName=function(){    alert(this.name">
+<meta name="keywords" content="javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常见排序方法">
+<meta property="og:url" content="http://yoursite.com/2017/05/02/继承的集中方式/index.html">
 <meta property="og:site_name" content="Edon">
+<meta property="og:description" content="继承的几种方法 2017-04-23 一.组合继承 思想：原型链实现对原型的属性和方法的继承，通过借用构造函数实现对实例属性的继承 function SuperType(name){    this.name=name;    this.color=[“red”,”blue”];}SuperType.prototype.sayName=function(){    alert(this.name">
+<meta property="og:updated_time" content="2017-07-13T14:59:43.024Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Edon">
+<meta name="twitter:title" content="常见排序方法">
+<meta name="twitter:description" content="继承的几种方法 2017-04-23 一.组合继承 思想：原型链实现对原型的属性和方法的继承，通过借用构造函数实现对实例属性的继承 function SuperType(name){    this.name=name;    this.color=[“red”,”blue”];}SuperType.prototype.sayName=function(){    alert(this.name">
   
     <link rel="alternative" href="/atom.xml" title="Edon" type="application/atom+xml">
   
@@ -131,117 +136,43 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-继承的集中方式" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      常见排序方法
+    </h1>
+  
+
+        
+        <a href="/2017/05/02/继承的集中方式/" class="archive-article-date">
+  	<time datetime="2017-05-02T14:23:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-02</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p> 继承的几种方法 2017-04-23</p>
+<p>一.组合继承</p>
+<p>思想：原型链实现对原型的属性和方法的继承，通过借用构造函数实现对实例属性的继承</p>
+<p>function SuperType(name){<br>    this.name=name;<br>    this.color=[“red”,”blue”];<br>}<br>SuperType.prototype.sayName=function(){<br>    alert(this.name);<br>}<br>function SubType(name,age){<br>    SubType.call(this,name);<br>    this.age=age;<br>}<br>SubType.prototype=new SuperType();<br>SubType.prototype.constructor=SubType;<br>SubType.prototype.sayAge=function(){<br>    alert(this.age);<br>}<br>二.原型式继承</p>
+<p>思想：原型可以基于一个已有的对象创建对象，首先需要有一个对象作为另一个对象的基础</p>
+<p>function object(o){<br>    function F(){}<br>    F.prototype=o;<br>    return new F();<br>}<br>var person={<br>    namae:’nike’,<br>    friends:[“shek”,”court”,”van”]<br>}<br>var anotherPerson=object(person);<br>anotherPerson.name=”Grag”;<br>anotherPerson.friends.push(“Rob”);<br>alert(person.friends);//[“shek”,”court”,”van”,”Rob”]<br>另一种：<br>var anotherPerson=Object.create(person,{<br>    name:{<br>        value:’Greg’<br>    }<br>});<br>alert(anotherPerson.name);//Greg<br>在没有必要新师动众的创建构造函数，而只想要一个对象与另一个对象保持类似时，原型继承可以胜任，但是包含引用类型值的属性始终都会共享</p>
+<p>三.寄生式继承</p>
+<p>创建一个用于封装继承过程的函数，该函数在内部以某种方式来争强对象，最后返回这个对象</p>
+<p>function createAnother(original){<br>    var clone=object(original);<br>    clone.sayHi=function(){<br>        alert(‘hi’);<br>    }<br>    return clone;<br>}<br>这种不能做到函数复用，效率低 </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/12/奶茶时/" class="archive-article-date">
-  	<time datetime="2017-07-11T16:28:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/12/奶茶时/">奶茶时</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/08/其实是逃避/" class="archive-article-date">
-  	<time datetime="2017-07-08T15:23:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/08/其实是逃避/">其实是逃避</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/08/自言自语/" class="archive-article-date">
-  	<time datetime="2017-07-07T18:23:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/08/自言自语/">自言自语</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/08/template - 副本 (11)/" class="archive-article-date">
-  	<time datetime="2017-07-07T18:23:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/08/template - 副本 (11)/">常见排序方法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -253,49 +184,55 @@
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/08/常见的排序方法/" class="archive-article-date">
-  	<time datetime="2017-06-08T11:40:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-08</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/08/常见的排序方法/">常见排序方法</a>
-    </h1>
+    <a href="/2017/05/08/正则表达式/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          正则表达式
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/04/08/时间与时间戳/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">时间Date</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
+  <div id="SOHUCS" sid="继承的集中方式" ></div> 
+<script type="text/javascript"> 
+(function(){ 
+var appid = "true"; 
+var conf = "true"; 
+var width = window.innerWidth || document.documentElement.clientWidth; 
+if (width < 960) { 
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("//changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2017/page/2/">2</a><a class="page-number" href="/archives/2017/page/3/">3</a><a class="page-number" href="/archives/2017/page/4/">4</a><a class="extend next" rel="next" href="/archives/2017/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -319,8 +256,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

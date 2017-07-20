@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017 | Edon</title>
+  <title>ajax过程 | Edon</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Edon">
-<meta property="og:url" content="http://yoursite.com/archives/2017/index.html">
+  <meta name="description" content="一.创建XMLHttpRequest对象 ie浏览器和其他浏览器有差别为了兼容该做如下写法1234567891011121314151617181920212223242526272829303132333435363738if(window.XMLHttpRequest)&amp;#123;	var xhr=new XMLHttpRequest();&amp;#125;else&amp;#123;	var xhr=ne">
+<meta name="keywords" content="javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ajax过程">
+<meta property="og:url" content="http://yoursite.com/2017/04/08/ajax过程/index.html">
 <meta property="og:site_name" content="Edon">
+<meta property="og:description" content="一.创建XMLHttpRequest对象 ie浏览器和其他浏览器有差别为了兼容该做如下写法1234567891011121314151617181920212223242526272829303132333435363738if(window.XMLHttpRequest)&amp;#123;	var xhr=new XMLHttpRequest();&amp;#125;else&amp;#123;	var xhr=ne">
+<meta property="og:updated_time" content="2017-07-13T15:07:58.463Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Edon">
+<meta name="twitter:title" content="ajax过程">
+<meta name="twitter:description" content="一.创建XMLHttpRequest对象 ie浏览器和其他浏览器有差别为了兼容该做如下写法1234567891011121314151617181920212223242526272829303132333435363738if(window.XMLHttpRequest)&amp;#123;	var xhr=new XMLHttpRequest();&amp;#125;else&amp;#123;	var xhr=ne">
   
     <link rel="alternative" href="/atom.xml" title="Edon" type="application/atom+xml">
   
@@ -131,117 +136,42 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-ajax过程" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ajax过程
+    </h1>
+  
+
+        
+        <a href="/2017/04/08/ajax过程/" class="archive-article-date">
+  	<time datetime="2017-04-07T17:23:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-08</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一.创建XMLHttpRequest对象</p>
+<p>ie浏览器和其他浏览器有差别<br>为了兼容该做如下写法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">if(window.XMLHttpRequest)&#123;</div><div class="line">	var xhr=new XMLHttpRequest();</div><div class="line">&#125;else&#123;</div><div class="line">	var xhr=new ActiveXObject();</div><div class="line">&#125;</div><div class="line">二.设置响应HTTP请求状态变化的函数</div><div class="line"></div><div class="line">发送HTTP请求的目的是为了接收从服务器中返回的数据。从创建XMLHttpRequest对象开始，到发送数据、接收数据、XMLHttpRequest对象一共会经历以下5中状态</div><div class="line"></div><div class="line">⑴未初始化状态。在创建完XMLHttpRequest对象时，该对象处于未初始化状态，此时XMLHttpRequest对象的readyState属性值为0。</div><div class="line"></div><div class="line">⑵初始化状态。在创建完XMLHttpRequest对象后使用open()方法创建了HTTP请求时，该对象处于初始化状态。此时XMLHttpRequest对象的readyState属性值为1。</div><div class="line"></div><div class="line">⑶发送数据状态。在初始化XMLHttpRequest对象后，使用send()方法发送数据时，该对象处于发送数据状态，此时XMLHttpRequest对象的readyState属性值为2。</div><div class="line"></div><div class="line">⑷接收数据状态。Web服务器接收完数据并进行处理完毕之后，向客户端传送返回的结果。此时，XMLHttpRequest对象处于接收数据状态，XMLHttpRequest对象的readyState属性值为3。</div><div class="line"></div><div class="line">⑸完成状态。XMLHttpRequest对象接收数据完毕后，进入完成状态，此时XMLHttpRequest对象的readyState属性值为4。此时接收完毕后的数据存入在客户端计算机的内存中，可以使用responseText属性或responseXml属性来获取数据。</div><div class="line"></div><div class="line">只有在XMLHttpRequest对象完成了以上5个步骤之后，才可以获取从服务器端返回的数据。因此，如果要获得从服务器端返回的数据，就必须要先判断XMLHttpRequest对象的状态。</div><div class="line"></div><div class="line">XMLHttpRequest对象可以响应readystatechange事件，该事件在XMLHttpRequest对象状态改变时（也就是readyState属性值改变时）激发。因此，可以通过该事件调用一个函数，并在该函数中判断XMLHttpRequest对象的readyState属性值。如果readyState属性值为4则使用responseText属性或responseXml属性来获取数据</div><div class="line">XMLHttpRequest对象的三个重要的属性：</div><div class="line"></div><div class="line">1.onreadystatechange 存储函数（或函数名），每当 readyState 属性改变时，就会调用该函数。</div><div class="line"></div><div class="line">2.readyState</div><div class="line">存有 XMLHttpRequest 的状态。从 0 到 4 发生变化。</div><div class="line">0: 请求未初始化</div><div class="line">1: 服务器连接已建立</div><div class="line">2: 请求已接收</div><div class="line">3: 请求处理中</div><div class="line">4: 请求已完成，且响应已就绪</div><div class="line"></div><div class="line">3.status 200: “OK”</div><div class="line">404: 未找到页面</div><div class="line"></div><div class="line">一般框架是这样写的</div></pre></td></tr></table></figure></p>
+<p>xmlhttp.onreadystatechange=function()<br>  {<br>  if (xmlhttp.readyState==4 &amp;&amp; xmlhttp.status==200)<br>    {<br>    document.getElementById(“myDiv”).innerHTML=xmlhttp.responseText;//在这里对请求回来的数据进行处理<br>    }<br>  }<br>服务器常用的状态码及其对应的含义：（感觉笔试老会考到）<br>200：服务器响应正常。<br>304：该资源在上次请求之后没有任何修改（这通常用于浏览器的缓存机制，使用GET请求时尤其需要注意）。<br>400：无法找到请求的资源。<br>401：访问资源的权限不够。<br>403：没有权限访问资源。<br>404：需要访问的资源不存在。<br>405：需要访问的资源被禁止。<br>407：访问的资源需要代理身份验证。<br>414：请求的URL太长。<br>500：服务器内部错误。</p>
+<p>三.向服务器发送请求</p>
+<p>使用open和send方法发送请求</p>
+<p>open：规定请求的类型，url以及是否异步处理请求<br>open(method,url,async):method为请求类型get和post<br>url：文件在服务器上的位置<br>async：true异步，false同步<br>send: 将请求发送到服务器<br>send（string）：string：仅仅用于post请求<br>get还是post？</p>
+<p>与post比get更快更简单，大部分情况都能用<br>下面情况只能用post：</p>
+<p>无法使用缓存文件(更新服务器上的文件或数据库)<br>向服务器发送大量数据(post没有数据限制)<br>发送包含为知字符的用户输入时，post比get更稳定可靠<br>对于post请求，如果希望像表单那样post数据，使用setRequestHeader()来添加HTTP头，然后在send方法中规定发送的数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">xmlhttp.open(&quot;POST&quot;,&quot;/try/ajax/demo_post2.php&quot;,true);</div><div class="line">xmlhttp.setRequestHeader(&quot;Content-type&quot;,&quot;application/x-www-form-urlencoded&quot;);</div><div class="line">xmlhttp.send(&quot;fname=Henry&amp;lname=Ford&quot;);</div><div class="line">setRequestHeader(header,value) :向请求添加 HTTP 头。</div><div class="line">header: 规定头的名称</div><div class="line">value: 规定头的值</div></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/12/奶茶时/" class="archive-article-date">
-  	<time datetime="2017-07-11T16:28:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/12/奶茶时/">奶茶时</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/08/其实是逃避/" class="archive-article-date">
-  	<time datetime="2017-07-08T15:23:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/08/其实是逃避/">其实是逃避</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/08/自言自语/" class="archive-article-date">
-  	<time datetime="2017-07-07T18:23:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/08/自言自语/">自言自语</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/08/template - 副本 (11)/" class="archive-article-date">
-  	<time datetime="2017-07-07T18:23:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/08/template - 副本 (11)/">常见排序方法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -253,49 +183,55 @@
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/08/常见的排序方法/" class="archive-article-date">
-  	<time datetime="2017-06-08T11:40:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-08</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/08/常见的排序方法/">常见排序方法</a>
-    </h1>
+    <a href="/2017/04/08/淘宝放大镜效果/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          常见排序方法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/04/01/时间委托的实现/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">事件委托的实现</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
+  <div id="SOHUCS" sid="ajax过程" ></div> 
+<script type="text/javascript"> 
+(function(){ 
+var appid = "true"; 
+var conf = "true"; 
+var width = window.innerWidth || document.documentElement.clientWidth; 
+if (width < 960) { 
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("//changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2017/page/2/">2</a><a class="page-number" href="/archives/2017/page/3/">3</a><a class="page-number" href="/archives/2017/page/4/">4</a><a class="extend next" rel="next" href="/archives/2017/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -319,8 +255,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

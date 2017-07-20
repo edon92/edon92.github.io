@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017 | Edon</title>
+  <title>原生JQ写法 | Edon</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Edon">
-<meta property="og:url" content="http://yoursite.com/archives/2017/index.html">
+  <meta name="description" content="原生jQ的写法 $(function(){}) $(‘#div1’) $(‘.box’) $(‘p’)的实现123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767">
+<meta name="keywords" content="javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="原生JQ写法">
+<meta property="og:url" content="http://yoursite.com/2017/03/08/原生JQ写法/index.html">
 <meta property="og:site_name" content="Edon">
+<meta property="og:description" content="原生jQ的写法 $(function(){}) $(‘#div1’) $(‘.box’) $(‘p’)的实现123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767">
+<meta property="og:updated_time" content="2017-07-13T15:13:00.076Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Edon">
+<meta name="twitter:title" content="原生JQ写法">
+<meta name="twitter:description" content="原生jQ的写法 $(function(){}) $(‘#div1’) $(‘.box’) $(‘p’)的实现123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767">
   
     <link rel="alternative" href="/atom.xml" title="Edon" type="application/atom+xml">
   
@@ -131,117 +136,37 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-原生JQ写法" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      原生JQ写法
+    </h1>
+  
+
+        
+        <a href="/2017/03/08/原生JQ写法/" class="archive-article-date">
+  	<time datetime="2017-03-08T00:11:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-08</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>  原生jQ的写法</p>
+<p>$(function(){}) $(‘#div1’) $(‘.box’) $(‘p’)的实现<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div></pre></td><td class="code"><pre><div class="line">function $(vArg)&#123;</div><div class="line">	return new Vquery(vArg);</div><div class="line">&#125;</div><div class="line">function Vquery(vArg)&#123;</div><div class="line">	</div><div class="line">		this.elements = [];  //选择元素的这样一个集合</div><div class="line">	</div><div class="line">		//vArg : function</div><div class="line">		switch(typeof vArg)&#123;</div><div class="line">			case &apos;function&apos;:</div><div class="line">				//window.onload = vArg;</div><div class="line">				bindEvent(window,&apos;load&apos;,vArg);</div><div class="line">			break;</div><div class="line">			case &apos;string&apos;:</div><div class="line">				</div><div class="line">				switch( vArg.charAt(0) )&#123;</div><div class="line">					case &apos;#&apos;:   //id</div><div class="line">						 this.elements.push(document.getElementById(vArg.substring(1)));</div><div class="line">					break;</div><div class="line">					case &apos;.&apos;:   //class</div><div class="line">						this.elements = getByClass(document,vArg.substring(1));</div><div class="line">					break;</div><div class="line">					default:  //tag</div><div class="line">						this.elements = toArray(document.getElementsByTagName(vArg));</div><div class="line">					break;</div><div class="line">				&#125;</div><div class="line">				</div><div class="line">			break;</div><div class="line">			case &apos;object&apos;:</div><div class="line">				if( vArg.constructor == Array )&#123;</div><div class="line">					this.elements = vArg;</div><div class="line">				&#125;</div><div class="line">				else&#123;</div><div class="line">					this.elements.push( vArg );</div><div class="line">				&#125;</div><div class="line">			break;</div><div class="line">		&#125;</div><div class="line">	</div><div class="line">&#125;</div><div class="line">function bindEvent(obj,events,fn)&#123;</div><div class="line">	if(obj.addEventListener)&#123;</div><div class="line">		obj.addEventListener(events,function(ev)&#123;</div><div class="line">			//fn() -&gt; false</div><div class="line">			//fn() -&gt; undefined</div><div class="line">			</div><div class="line">			if( fn() == false )&#123;</div><div class="line">				ev.preventDefault();</div><div class="line">				ev.cancelBubble = true;</div><div class="line">			&#125;</div><div class="line">			</div><div class="line">		&#125;,false);</div><div class="line">	&#125;</div><div class="line">	else&#123;</div><div class="line">		obj.attachEvent(&apos;on&apos;+events,function()&#123;</div><div class="line">			</div><div class="line">			if( fn() == false )&#123;</div><div class="line">				window.event.cancelBubble = true;</div><div class="line">				return false;</div><div class="line">			&#125;</div><div class="line">			</div><div class="line">		&#125;);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">//下面是一些辅助函数</div><div class="line">function getByClass(oParent,sClass)&#123;</div><div class="line">	var arr = [];</div><div class="line">	var elems = oParent.getElementsByTagName(&apos;*&apos;);</div><div class="line">	</div><div class="line">	for(var i=0;i&lt;elems.length;i++)&#123;</div><div class="line">		if( elems[i].className == sClass )&#123;</div><div class="line">			arr.push( elems[i] );</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	return arr;</div><div class="line">	</div><div class="line">&#125;</div><div class="line">function toArray(elems)&#123;</div><div class="line">	var arr = [];</div><div class="line">	for(var i=0;i&lt;elems.length;i++)&#123;</div><div class="line">		arr.push(elems[i]);</div><div class="line">	&#125;</div><div class="line">	return arr;</div><div class="line">&#125;</div><div class="line">function getStyle(obj,attr)&#123;</div><div class="line">	if(obj.currentStyle)&#123;</div><div class="line">		return obj.currentStyle[attr];</div><div class="line">	&#125;</div><div class="line">	else&#123;</div><div class="line">		return getComputedStyle(obj,false)[attr];</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>$().css() $().html()的实现<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">Vquery.prototype.html = function(str)&#123;</div><div class="line">	if(str)&#123;  //设置</div><div class="line">		for(var i=0;i&lt;this.elements.length;i++)&#123;</div><div class="line">			this.elements[i].innerHTML = str;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	else&#123;   //获取</div><div class="line">		return this.elements[0].innerHTML;</div><div class="line">	&#125;</div><div class="line">	return this;</div><div class="line">&#125;;</div><div class="line">Vquery.prototype.click = function(fn)&#123;</div><div class="line">	</div><div class="line">	/*for(var i=0;i&lt;this.elements.length;i++)&#123;</div><div class="line">		bindEvent(this.elements[i],&apos;click&apos;,fn);</div><div class="line">	&#125;*/</div><div class="line">	</div><div class="line">	this.on(&apos;click&apos;,fn);</div><div class="line">	return this;</div><div class="line">	</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/12/奶茶时/" class="archive-article-date">
-  	<time datetime="2017-07-11T16:28:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/12/奶茶时/">奶茶时</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/08/其实是逃避/" class="archive-article-date">
-  	<time datetime="2017-07-08T15:23:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/08/其实是逃避/">其实是逃避</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/08/自言自语/" class="archive-article-date">
-  	<time datetime="2017-07-07T18:23:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/08/自言自语/">自言自语</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/08/template - 副本 (11)/" class="archive-article-date">
-  	<time datetime="2017-07-07T18:23:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/08/template - 副本 (11)/">常见排序方法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -253,49 +178,55 @@
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/08/常见的排序方法/" class="archive-article-date">
-  	<time datetime="2017-06-08T11:40:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-08</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/08/常见的排序方法/">常见排序方法</a>
-    </h1>
+    <a href="/2017/04/01/时间委托的实现/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          事件委托的实现
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/08/JS解析代码/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JS解释代码</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
+  <div id="SOHUCS" sid="原生JQ写法" ></div> 
+<script type="text/javascript"> 
+(function(){ 
+var appid = "true"; 
+var conf = "true"; 
+var width = window.innerWidth || document.documentElement.clientWidth; 
+if (width < 960) { 
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("//changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2017/page/2/">2</a><a class="page-number" href="/archives/2017/page/3/">3</a><a class="page-number" href="/archives/2017/page/4/">4</a><a class="extend next" rel="next" href="/archives/2017/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -319,8 +250,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

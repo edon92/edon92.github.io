@@ -6,14 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017 | Edon</title>
+  <title>常见排序方法 | Edon</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Edon">
-<meta property="og:url" content="http://yoursite.com/archives/2017/index.html">
+  <meta name="description" content="&amp;lt;!doctype html&amp;gt;         放大镜             {            margin: 0;            padding: 0        }        body{            width: 2000px;        }        #demo {            display: block;">
+<meta name="keywords" content="javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常见排序方法">
+<meta property="og:url" content="http://yoursite.com/2017/04/08/淘宝放大镜效果/index.html">
 <meta property="og:site_name" content="Edon">
+<meta property="og:description" content="&amp;lt;!doctype html&amp;gt;         放大镜             {            margin: 0;            padding: 0        }        body{            width: 2000px;        }        #demo {            display: block;">
+<meta property="og:image" content="http://yoursite.com/2017/04/08/淘宝放大镜效果/macbook-small.jpg">
+<meta property="og:image" content="http://yoursite.com/2017/04/08/淘宝放大镜效果/macbook-big.jpg">
+<meta property="og:updated_time" content="2017-07-13T14:54:16.467Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Edon">
+<meta name="twitter:title" content="常见排序方法">
+<meta name="twitter:description" content="&amp;lt;!doctype html&amp;gt;         放大镜             {            margin: 0;            padding: 0        }        body{            width: 2000px;        }        #demo {            display: block;">
+<meta name="twitter:image" content="http://yoursite.com/2017/04/08/淘宝放大镜效果/macbook-small.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Edon" type="application/atom+xml">
   
@@ -131,117 +139,39 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-淘宝放大镜效果" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      常见排序方法
+    </h1>
+  
+
+        
+        <a href="/2017/04/08/淘宝放大镜效果/" class="archive-article-date">
+  	<time datetime="2017-04-07T18:23:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-08</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&lt;!doctype html&gt;</p>
+<html><br><head><br>    <meta charset="UTF-8"><br>    <title>放大镜</title><br>    <style><br>        <em> {<br>            margin: 0;<br>            padding: 0<br>        }<br>        body{<br>            width: 2000px;<br>        }<br>        #demo {<br>            display: block;<br>            width: 400px;<br>            height: 255px;<br>            margin: 50px;<br>            position: relative;<br>            border: 1px solid #ccc;<br>        }<br>        #small-box {<br>            position: relative;<br>            z-index: 1;<br>        }<br>        #float-box {<br>            display: none;<br>            width: 160px;<br>            height: 120px;<br>            position: absolute;<br>            background: #ffffcc;<br>            border: 1px solid #ccc;<br>            filter: alpha(opacity=50);<br>            opacity: 0.5;<br>        }<br>        #mark {<br>            position: absolute;<br>            display: block;<br>            width: 400px;<br>            height: 255px;<br>            background-color: #fff;<br>            filter: alpha(opacity=0);<br>            opacity: 0;<br>            z-index: 10;<br>        }<br>        #big-box {<br>            display: none;<br>            position: absolute;<br>            top: 0;<br>            left: 460px;<br>            width: 400px;<br>            height: 300px;<br>            overflow: hidden;<br>            border: 1px solid #ccc;<br>            z-index: 1;;<br>        }<br>        #big-box img {<br>            position: absolute;<br>        }<br>    </style><br>    <script src="http://libs.baidu.com/jquery/1.10.0/jquery.min.js"></script><br>    <script><br>        //页面加载完毕后执行<br>        window.onload = function () {<br>            var objDemo = document.getElementById(“demo”);<br>            var objSmallBox = document.getElementById(“small-box”);<br>            var objMark = document.getElementById(“mark”);<br>            var objFloatBox = document.getElementById(“float-box”);<br>            var objBigBox = document.getElementById(“big-box”);<br>            var objBigBoxImage = objBigBox.getElementsByTagName(“img”)[0];<br>            objMark.onmouseover = function () {<br>                objFloatBox.style.display = “block”<br>                objBigBox.style.display = “block”<br>            }<br>            objMark.onmouseout = function () {<br>                objFloatBox.style.display = “none”<br>                objBigBox.style.display = “none”<br>            }<br>            console.log(objDemo.clientWidth);<br>            console.log($(objDemo).offset().left);<br>            objMark.onmousemove = function (ev) {<br>                var _event = ev || window.event;  //兼容多个浏览器的event参数模式<br>                var left = _event.clientX - objDemo.offsetLeft - objSmallBox.offsetLeft - objFloatBox.offsetWidth / 2;<br>                var top = _event.clientY - objDemo.offsetTop - objSmallBox.offsetTop - objFloatBox.offsetHeight / 2;<br>                if (left &lt; 0) {<br>                    left = 0;<br>                } else if (left &gt; (objMark.offsetWidth - objFloatBox.offsetWidth)) {<br>                    left = objMark.offsetWidth - objFloatBox.offsetWidth;<br>                }<br>                if (top &lt; 0) {<br>                    top = 0;<br>                } else if (top &gt; (objMark.offsetHeight - objFloatBox.offsetHeight)) {<br>                    top = objMark.offsetHeight - objFloatBox.offsetHeight;<br>                }<br>                objFloatBox.style.left = left + “px”;   //oSmall.offsetLeft的值是相对什么而言<br>                objFloatBox.style.top = top + “px”;<br>                var percentX = left / (objMark.offsetWidth - objFloatBox.offsetWidth);<br>                var percentY = top / (objMark.offsetHeight - objFloatBox.offsetHeight);<br>                objBigBoxImage.style.left = -percentX </em> (objBigBoxImage.offsetWidth - objBigBox.offsetWidth) + “px”;<br>                objBigBoxImage.style.top = -percentY <em> (objBigBoxImage.offsetHeight - objBigBox.offsetHeight) + “px”;<br>            }<br>            $(‘#mark’).bind(“mouseover”,function(ev){<br>                $(‘#float-box’).show();<br>                $(‘#big-box’).show();<br>            });<br>            $(‘#mark’).bind(“mouseout”,function(ev){<br>                 $(‘#float-box’).hide();<br>                 $(‘#big-box’).hide();<br><br>            });<br>            $(‘#mark’).bind(“mousemove”,function(ev){<br>                    var ev=ev||window.event;<br>                    var Left=ev.pageX-$(‘#mark’).offset().left-$(‘#float-box’).width()/2;<br>                    var Top=ev.pageY-$(‘#mark’).offset().top-$(‘#float-box’).height()/2;<br>                    if(Left<0){
+                        Left=0;
+                    }else if(Left>$(‘#mark’).width()-$(‘#float-box’).width()){<br>                        Left=$(‘#mark’).width()-$(‘#float-box’).width();<br>                    }<br>                    if(Top<0){
+                        Top=0;
+                    }else if(Top>$(‘#mark’).height()-$(‘#float-box’).height()){<br>                        Top=$(‘#mark’).height()-$(‘#float-box’).height();<br>                    }<br>                    var percent=$(‘#mark’).width()/$(‘#float-box’).width();<br>                    $(‘#float-box’).css({“left”:Left+”px”,”top”:Top+”px”});<br>                    $(‘#big-box img’).css({“left”:-Left</em>percent+”px”,”top”:-Top*percent+”px”});<br>            });<br>    </script><br></head><br><body><br><div id="demo"><br>    <div id="small-box"><br>        <div id="mark"></div><br>        <div id="float-box"></div><br>        <img src="macbook-small.jpg"><br>    </div><br>    <div id="big-box"><br>        <img src="macbook-big.jpg"><br>    </div><br></div><br></body><br></html>  
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/12/奶茶时/" class="archive-article-date">
-  	<time datetime="2017-07-11T16:28:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/12/奶茶时/">奶茶时</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/08/其实是逃避/" class="archive-article-date">
-  	<time datetime="2017-07-08T15:23:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/08/其实是逃避/">其实是逃避</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/08/自言自语/" class="archive-article-date">
-  	<time datetime="2017-07-07T18:23:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/08/自言自语/">自言自语</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/08/template - 副本 (11)/" class="archive-article-date">
-  	<time datetime="2017-07-07T18:23:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/08/template - 副本 (11)/">常见排序方法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -253,49 +183,55 @@
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/08/常见的排序方法/" class="archive-article-date">
-  	<time datetime="2017-06-08T11:40:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-08</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/08/常见的排序方法/">常见排序方法</a>
-    </h1>
+    <a href="/2017/04/08/时间与时间戳/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          时间Date
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/04/08/ajax过程/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ajax过程</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
+  <div id="SOHUCS" sid="淘宝放大镜效果" ></div> 
+<script type="text/javascript"> 
+(function(){ 
+var appid = "true"; 
+var conf = "true"; 
+var width = window.innerWidth || document.documentElement.clientWidth; 
+if (width < 960) { 
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("//changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2017/page/2/">2</a><a class="page-number" href="/archives/2017/page/3/">3</a><a class="page-number" href="/archives/2017/page/4/">4</a><a class="extend next" rel="next" href="/archives/2017/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -319,8 +255,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

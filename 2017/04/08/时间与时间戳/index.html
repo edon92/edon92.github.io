@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017 | Edon</title>
+  <title>时间Date | Edon</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Edon">
-<meta property="og:url" content="http://yoursite.com/archives/2017/index.html">
+  <meta name="description" content="一.时间对象Date 数字的形式：new Date(2013,4,14,9,45,20);//页就是年月日时分秒字符串的形式：new Date(‘November 27,2013 22:3:0’);//只有一个逗号，前面写月日，后面写年 时分秒，注意空格字符串的形式：new Date(“2014-07-19 20:10:1”); 未来时间与现在时间的差：123456789var inow=new">
+<meta name="keywords" content="javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="时间Date">
+<meta property="og:url" content="http://yoursite.com/2017/04/08/时间与时间戳/index.html">
 <meta property="og:site_name" content="Edon">
+<meta property="og:description" content="一.时间对象Date 数字的形式：new Date(2013,4,14,9,45,20);//页就是年月日时分秒字符串的形式：new Date(‘November 27,2013 22:3:0’);//只有一个逗号，前面写月日，后面写年 时分秒，注意空格字符串的形式：new Date(“2014-07-19 20:10:1”); 未来时间与现在时间的差：123456789var inow=new">
+<meta property="og:updated_time" content="2017-07-13T15:18:14.872Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Edon">
+<meta name="twitter:title" content="时间Date">
+<meta name="twitter:description" content="一.时间对象Date 数字的形式：new Date(2013,4,14,9,45,20);//页就是年月日时分秒字符串的形式：new Date(‘November 27,2013 22:3:0’);//只有一个逗号，前面写月日，后面写年 时分秒，注意空格字符串的形式：new Date(“2014-07-19 20:10:1”); 未来时间与现在时间的差：123456789var inow=new">
   
     <link rel="alternative" href="/atom.xml" title="Edon" type="application/atom+xml">
   
@@ -131,117 +136,54 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-时间与时间戳" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      时间Date
+    </h1>
+  
+
+        
+        <a href="/2017/04/08/时间与时间戳/" class="archive-article-date">
+  	<time datetime="2017-04-08T15:12:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-08</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一.时间对象Date</p>
+<p>数字的形式：new Date(2013,4,14,9,45,20);//页就是年月日时分秒<br>字符串的形式：new Date(‘November 27,2013 22:3:0’);//只有一个逗号，前面写月日，后面写年 时分秒，注意空格<br>字符串的形式：new Date(“2014-07-19 20:10:1”);</p>
+<p>未来时间与现在时间的差：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var inow=new Date();</div><div class="line">var iNew=new Date(November 27,2017 20:16:0);</div><div class="line"></div><div class="line">var t=Math.floor((inow-iNew)/1000);</div><div class="line"></div><div class="line">天：Math.floor(t/86400)</div><div class="line">时：Math.floor(t%86400/3600)</div><div class="line">分：Math.floor(t%86400%3600/60)</div><div class="line">秒：t%60</div></pre></td></tr></table></figure></p>
+<p>二.时间戳</p>
+<p>概念：从1970年1月1日至今的毫秒数，可以通过getTime()得到<br>注意是毫秒<br>有时候给出的时间戳是秒</p>
+<p>获取当前时间的时间戳的方法：</p>
+<p>1.var timestamp=Date.parse(new Date());<br>2.var timestamp=(new Date()).valueOf();<br>3.var timestamp=new Date().getTime();<br>第一种：获取的时间戳是把毫秒改成000显示，</p>
+<p>第二种和第三种是获取了当前毫秒的时间戳。</p>
+<p>三.Date对象下的时间转化为字符串的方法</p>
+<pre><code>var inow=new Date();
+console.log(inow.toString());//Sat Apr 22 2017 17:18:20 GMT+0800 (中国标准时间)
+console.log(inow.toLocaleString());//2017/4/22 下午5:18:20
+console.log(inow.toLocaleTimeString());//下午5:18:20
+console.log (inow.toLocaleDateString());//2017/4/22
+</code></pre><p>四.时间戳转化为其他形式日期的写法</p>
+<pre><code>var inow=new Date();
+console.log(inow.toLocaleString().replace(/上午|下午/g,&apos;&apos;));//2017/4/22 10:19:05
+console.log(inow.toLocaleString().replace(/上午|下午/g,&apos;&apos;).replace(/\//g,&apos;-&apos;));//2017-4-22 10:21:54
+</code></pre><p>五.一些常用的时间对象的函数</p>
+<p>getDate()返回月中的天<br>getDay()周中的星期几<br>getFullYear()四位以上数字的年份<br>getHours()时<br>getMinuters()分<br>getSeconds()秒<br>getMonth()月<br>以上函数都有对应的set函数<br>setDate() 设置 Date 对象中月的某一天 (1 ~ 31)。<br>setFullYear() 设置 Date 对象中的年份（四位数字）。<br>setHours() 设置 Date 对象中的小时 (0 ~ 23)。<br>setMinutes() 设置 Date 对象中的分钟 (0 ~ 59)。<br>setMonth() 设置 Date 对象中月份 (0 ~ 11)。<br>setSeconds() 设置 Date 对象中的秒钟 (0 ~ 59)。<br>setTime() setTime() 方法以毫秒设置 Date 对象。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/12/奶茶时/" class="archive-article-date">
-  	<time datetime="2017-07-11T16:28:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/12/奶茶时/">奶茶时</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/08/其实是逃避/" class="archive-article-date">
-  	<time datetime="2017-07-08T15:23:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/08/其实是逃避/">其实是逃避</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/08/自言自语/" class="archive-article-date">
-  	<time datetime="2017-07-07T18:23:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/08/自言自语/">自言自语</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/08/template - 副本 (11)/" class="archive-article-date">
-  	<time datetime="2017-07-07T18:23:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/08/template - 副本 (11)/">常见排序方法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -253,49 +195,55 @@
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/08/常见的排序方法/" class="archive-article-date">
-  	<time datetime="2017-06-08T11:40:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-08</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/08/常见的排序方法/">常见排序方法</a>
-    </h1>
+    <a href="/2017/05/02/继承的集中方式/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          常见排序方法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/04/08/淘宝放大镜效果/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">常见排序方法</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
+  <div id="SOHUCS" sid="时间与时间戳" ></div> 
+<script type="text/javascript"> 
+(function(){ 
+var appid = "true"; 
+var conf = "true"; 
+var width = window.innerWidth || document.documentElement.clientWidth; 
+if (width < 960) { 
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("//changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2017/page/2/">2</a><a class="page-number" href="/archives/2017/page/3/">3</a><a class="page-number" href="/archives/2017/page/4/">4</a><a class="extend next" rel="next" href="/archives/2017/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -319,8 +267,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

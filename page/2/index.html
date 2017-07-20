@@ -6,11 +6,11 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017 | Edon</title>
+  <title>Edon</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="Edon">
-<meta property="og:url" content="http://yoursite.com/archives/2017/index.html">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="Edon">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Edon">
@@ -133,115 +133,59 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-面向对象、原型、继承" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/08/面向对象、原型、继承/">面向对象、原型、继承</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/08/面向对象、原型、继承/" class="archive-article-date">
+  	<time datetime="2017-06-08T08:32:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-08</time>
+</a>
+        
+      </header>
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>js面向对象的几种模式</p>
+<p>一：普通模式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var obj = new Object();  //创建了一个空的对象</div><div class="line">obj.name = &apos;小明&apos;;  //属性</div><div class="line">obj.showName = function()&#123;  //方法</div><div class="line">	alert(this.name);</div><div class="line">&#125;;</div><div class="line">obj.showName();</div></pre></td></tr></table></figure></p>
+<p>一次只能创建一个</p>
+<p>二：工厂模式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">//工厂方式 : 封装函数</div><div class="line">function createPerson(name)&#123;</div><div class="line">	</div><div class="line">	//1.原料</div><div class="line">	var obj = new Object();</div><div class="line">	//2.加工</div><div class="line">	obj.name = name;</div><div class="line">	obj.showName = function()&#123;</div><div class="line">		alert( this.name );</div><div class="line">	&#125;;</div><div class="line">	//3.出场</div><div class="line">	return obj;</div><div class="line">	</div><div class="line">&#125;</div><div class="line">var p1 = createPerson(&apos;小明&apos;);</div><div class="line">p1.showName();</div><div class="line">var p2 = createPerson(&apos;小强&apos;);</div><div class="line">p2.showName();</div></pre></td></tr></table></figure></p>
+<p>缺点：每个对象都有一份自己的属性和方法</p>
+<p>三：原型模式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">//当new去调用一个函数 : 这个时候函数中的this就是创建出来的对象,而且函数的的返回值直接就是this啦(隐式返回)</div><div class="line">//new后面调用的函数 : 叫做构造函数</div><div class="line">function CreatePerson(name)&#123;</div><div class="line">	</div><div class="line">	this.name = name;</div><div class="line">	</div><div class="line">&#125;</div><div class="line">CreatePerson.prototype.showName = function()&#123;</div><div class="line">	alert( this.name );</div><div class="line">&#125;;</div><div class="line">var p1 = new CreatePerson(&apos;小明&apos;);</div><div class="line">//p1.showName();</div><div class="line">var p2 = new CreatePerson(&apos;小强&apos;);</div><div class="line">//p2.showName();</div><div class="line">alert( p1.showName == p2.showName );  //true</div></pre></td></tr></table></figure></p>
+<p>注意：</p>
+<p>A.在27行中的结果是true，因为原型在内存中只有一份<br>B.当new去调用一个函数 : 这个时候函数中的this就是创建出来的对象,而且函数的的返回值直接就是this啦(隐式返回)<br>C.new后面调用的函数 : 叫做构造函数<br>一些常用的函数：</p>
+<p>1.hasOenProperty:查看是不是对象自身下面的属性<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//hasOwnProperty : 看是不是对象自身下面的属性</div><div class="line">var arr = [];</div><div class="line">arr.num = 10;</div><div class="line">Array.prototype.num2 = 20;</div><div class="line">//alert(  arr.hasOwnProperty(&apos;num&apos;)  );  //true</div><div class="line">alert(  arr.hasOwnProperty(&apos;num2&apos;)  );  //false</div><div class="line">2.constructor:查看对象的构找函数</div></pre></td></tr></table></figure></p>
+<p>function Aaa(){<br>}<br>var a1 = new Aaa();<br>alert( a1.constructor );  //Aaa<br>var arr = [];<br>alert( arr.constructor == Array );  //true*/<br>function Aaa(){<br>}<br>Aaa.prototype.constructor = Aaa;   //每一个函数都会有的，都是自动生成的<br>Aaa.prototype.constructor = Array;<br>constructor是在当前对象的原型下的属性</p>
+<p>3.instanceof:对象与构造函数在原型链上是否有关系<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//instanceof : 对象与构造函数在原型链上是否有关系</div><div class="line">function Aaa()&#123;</div><div class="line">&#125;</div><div class="line">var a1 = new Aaa();</div><div class="line">//alert( a1 instanceof Object );  //true</div><div class="line">var arr = [];</div><div class="line">alert( arr instanceof Array );</div><div class="line">4.toString:把对象转换成字符串</div></pre></td></tr></table></figure></p>
+<p>toString() : 系统对象下面都是自带的 , 自己写的对象都是通过原型链找object下面的<br>var arr = [];<br>alert( arr.toString == Object.prototype.toString ); //false<br>function Aaa(){<br>}<br>var a1 = new Aaa();<br>alert( a1.toString == Object.prototype.toString );  //true*<br>也就是说如果是自通对象，比如arr，toString就是在Array下面自带的<br>而自己写的对象比如a1，toString在object的原型下。</p>
+<p>注意：toString是最完美的类型判断的方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">//利用toString做类型的判断 : </div><div class="line">/*var arr = [];</div><div class="line">alert( Object.prototype.toString.call(arr) == &apos;[object Array]&apos; ); */ //&apos;[object Array]&apos;</div><div class="line">window.onload = function()&#123;</div><div class="line">	</div><div class="line">	var oF = document.createElement(&apos;iframe&apos;);</div><div class="line">	document.body.appendChild( oF );</div><div class="line">	</div><div class="line">	var ifArray = window.frames[0].Array;</div><div class="line">	</div><div class="line">	var arr = new ifArray();</div><div class="line">	</div><div class="line">	//alert( arr.constructor == Array );  //false</div><div class="line">	</div><div class="line">	//alert( arr instanceof Array );  //false</div><div class="line">	</div><div class="line">	alert( Object.prototype.toString.call(arr) == &apos;[object Array]&apos; );  //true</div><div class="line">	</div><div class="line">	</div><div class="line">&#125;;</div><div class="line">五:拷贝继承</div><div class="line"></div><div class="line">继承：子类不影响父类，子类可以继承父类的一些功能（代码复用）</div><div class="line">属性的继承：调用父类的构造函数call</div><div class="line">方法的继承：for in：拷贝继承（jqurey也是采用拷贝继承extend）</div></pre></td></tr></table></figure></p>
+<p>function CreatePerson(name,sex){   //父类<br>    this.name = name;<br>    this.sex = sex;<br>}<br>CreatePerson.prototype.showName = function(){<br>    alert( this.name );<br>};<br>var p1 = new CreatePerson(‘小明’,’男’);<br>//p1.showName();<br>function CreateStar(name,sex,job){  //子类</p>
+<pre><code>CreatePerson.call(this,name,sex);
+
+this.job = job;
+</code></pre><p>}<br>//CreateStar.prototype = CreatePerson.prototype;<br>extend( CreateStar.prototype , CreatePerson.prototype );<br>CreateStar.prototype.showJob = function(){<br>};<br>var p2 = new CreateStar(‘黄晓明’,’男’,’演员’);<br>p2.showName();<br>function extend(obj1,obj2){<br>    for(var attr in obj2){<br>        obj1[attr] = obj2[attr];<br>    }<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">看一个例子：</div></pre></td></tr></table></figure></p>
+<p>var a={<br>    name:’xiaoming’<br>};<br>var b=a;//b引用了a<br>b.name=’xiaoqiang’;<br>alert(a.name);//xiaoqiang<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">因为b是a的引用，为了解决这个问题</div></pre></td></tr></table></figure></p>
+<p>var b={};<br>extend(b,a);<br>b.name=’xiaoqiang’;<br>alert(a.name);//xiaoming<br>function extend(obj1,obj2){<br>    for(var attr in obj2){<br>        obj1[attr]=obj2[attr];<br>    }<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">这样写就是复制而不是引用</div><div class="line"></div><div class="line">五：类式继承</div></pre></td></tr></table></figure></p>
+<p>function Aaa(){<br>    this.name=’小明’;<br>}<br>Aaa.prototype.showName=function(){<br>    alert(this.name);<br>}<br>function Bbb(){<br>}<br>Bbb.prototype=new Aaa();//这句话就是类式继承<br>var b1=new Bbb();<br>b1.showName();<br>alert(b1.name);//小明<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">面试题：如何用一句话做到继承，指的就是类似继承，但是有很多问题，比如改变了b1的constructor指向，为了解决这个问题加一句话</div><div class="line">Bbb.prototype.constructor=Bbb;</div><div class="line">但是还是有很多问题</div><div class="line">类似继承最好是属性和方法分开继承</div><div class="line"></div><div class="line">属性的继承：</div></pre></td></tr></table></figure></p>
+<p>function Bbb(){<br>    Aaa.call(this);<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">方法的继承：</div></pre></td></tr></table></figure></p>
+<p>var F=function(){};<br>F.prototype=Aaa.prototype;<br>Bbb.prototype=new F();<br>Bbb.prototype.constructor=Bbb;<br>```<br>这才是完美结类式继承</p>
+<p>六.原型 与原型链的概念</p>
+<p>原型：我们创建的每个函数都有一个prototype（原型）属性，这个属性是一个指针，指向一个对象，这个对象包含可以由特定类型的所有实例共享的属性和方法<br>原型链：每个构造函数都有一个原型对象，原型对象都包含一个指向构造函数的指针，而实例都包含一个指向原型对象的内部指针，如果我们用原型对象等于另一个类型的实例，那么此时原型对象将包含一个指向另一个原型的指针<br>相应的另一个原型中也包含一个指向另一个构造函数的指针，以此类推，层层递进就构成了实例与原型的链条，这叫原型链</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/12/奶茶时/" class="archive-article-date">
-  	<time datetime="2017-07-11T16:28:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/12/奶茶时/">奶茶时</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/08/其实是逃避/" class="archive-article-date">
-  	<time datetime="2017-07-08T15:23:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/08/其实是逃避/">其实是逃避</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/08/自言自语/" class="archive-article-date">
-  	<time datetime="2017-07-07T18:23:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/08/自言自语/">自言自语</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/08/template - 副本 (11)/" class="archive-article-date">
-  	<time datetime="2017-07-07T18:23:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/08/template - 副本 (11)/">常见排序方法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -253,48 +197,315 @@
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/08/面向对象、原型、继承/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+
+
+
+
   
+    <article id="post-fixed布局" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/08/常见的排序方法/" class="archive-article-date">
-  	<time datetime="2017-06-08T11:40:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-08</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/08/常见的排序方法/">常见排序方法</a>
+      <a class="article-title" href="/2017/06/08/fixed布局/">flex布局</a>
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
+        
+        <a href="/2017/06/08/fixed布局/" class="archive-article-date">
+  	<time datetime="2017-06-08T01:23:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>flex布局也就是弹性布局</p>
+<p>由于觉得阮一峰老师的博客已经写得非常详细，而且通俗易懂，这里附上他的链接，以后方便复习</p>
+<p> <a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="external">布局教程：语法篇</a><br> <a href="http://www.ruanyifeng.com/blog/2015/07/flex-examples.html" target="_blank" rel="external">布局教程：实例篇</a></p>
+<p>采用Flex布局的元素，称为Flex容器（flex container），简称”容器”。它的所有子元素自动成为容器成员，称为Flex项目（flex item），简称”项目”。<br>容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。主轴的开始位置（与边框的交叉点）叫做main start，结束位置叫做main end；交叉轴的开始位置叫做cross start，结束位置叫做cross end。<br>项目默认沿主轴排列。单个项目占据的主轴空间叫做main size，占据的交叉轴空间叫做cross size。</p>
+<p>使用flex布局应该注意些什么</p>
+<p>1.Webkit内核的浏览器，必须加上-webkit前缀。<br>2.任何一个容器都可以指定为Flex布局。行内元素也可以使用Flex布局。<br>3.设为Flex布局以后，子元素的float、clear和vertical-align属性将失效。<br>容器的属性</p>
+<p>以下6个属性设置在容器上。</p>
+<p>1.flex-direction<br>2.flex-wrap<br>3.flex-flow<br>4.justify-content<br>5.align-items<br>6.align-content<br>flex-direction属性<br>决定主轴的方向（即项目的排列方向）。<br>.box {<br>flex-direction: row | row-reverse | column | column-reverse;<br>}</p>
+<p>flex-wrap属性<br>默认情况下，项目都排在一条线（又称”轴线”）上。flex-wrap属性定义，如果一条轴线排不下，如何换行。<br>.box{<br>flex-wrap: nowrap | wrap | wrap-reverse;<br>}</p>
+<p>flex-flow属性<br>是flex-direction属性和flex-wrap属性的简写形式，默认值为row nowrap</p>
+<p>justify-content属性<br>justify-content属性定义了项目在主轴上的对齐方式。<br>.box {<br>justify-content: flex-start | flex-end | center | space-between | space-around;<br>}</p>
+<p>align-items属性<br>align-items属性定义项目在交叉轴上如何对齐。</p>
+<p>.box {<br>align-items: flex-start | flex-end | center | baseline | stretch;<br>}</p>
+<p>baseline: 项目的第一行文字的基线对齐。<br>stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。</p>
+<p>align-content属性<br>align-content属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。</p>
+<p>.box {<br>align-content: flex-start | flex-end | center | space-between | space-around | stretch;<br>}</p>
+<p>stretch（默认值）：轴线占满整个交叉轴。</p>
+<p>以下6个属性设置在项目上。</p>
+<p>1.order<br>2.flex-grow<br>3.flex-shrink<br>4.flex-basis<br>5.flex<br>6.align-self<br>order属性<br>order属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。</p>
+<p>flex-grow属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。</p>
+<p>flex-shrink属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。</p>
+<p>flex-basis属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。</p>
+<p>flex属性<br>flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。</p>
+<p>align-self属性<br>align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。  </p>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/08/fixed布局/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+
+
+
+
   
+    <article id="post-cookies，sessionStorage和localStorage的区别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
-    </div></section>
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/08/cookies，sessionStorage和localStorage的区别/">cookies，sessionStorage和localStorage的区别</a>
+    </h1>
   
 
+        
+        <a href="/2017/05/08/cookies，sessionStorage和localStorage的区别/" class="archive-article-date">
+  	<time datetime="2017-05-08T15:23:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-08</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>sessionStorage用于本地存储一个会话（session）中的数据，这些数据只有在同一个会话中的页面才能访问并且当会话结束后数据也随之销毁。因此sessionStorage不是一种持久化的本地存储，仅仅是会话级别的存储。而localStorage用于持久化的本地存储，除非主动删除数据，否则数据是永远不会过期的。<br>web storage和cookie的区别<br>Web Storage的概念和cookie相似，区别是它是为了更大容量存储设计的。Cookie的大小是受限的，并且每次你请求一个新的页面的时候Cookie都会被发送过去，这样无形中浪费了带宽，另外cookie还需要指定作用域，不可以跨域调用。<br>除此之外，Web Storage拥有setItem,getItem,removeItem,clear等方法，不像cookie需要前端开发者自己封装setCookie，getCookie。但是Cookie也是不可以或缺的：Cookie的作用是与服务器进行交互，作为HTTP规范的一部分而存在 ，而Web Storage仅仅是为了在本地“存储”数据而生。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/05/08/cookies，sessionStorage和localStorage的区别/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-正则表达式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/08/正则表达式/">正则表达式</a>
+    </h1>
+  
+
+        
+        <a href="/2017/05/08/正则表达式/" class="archive-article-date">
+  	<time datetime="2017-05-08T06:23:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p> 正则表达式常用方法</p>
+<p>test</p>
+<p>用途：字符串判断</p>
+<p>-返回真假<br>-正则.test(字符串)<br>-例子：是否有不知数字的字符<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var str=&quot;akjkcs123232&quot;;</div><div class="line">var re=/\D/;</div><div class="line">alert(re.test(str));//true</div><div class="line">\s : 空格</div><div class="line">\S : 非空格</div><div class="line">\d : 数字</div><div class="line">\D : 非数字</div><div class="line">\w : 字符 ( 字母 ，数字，下划线_ )</div><div class="line">\W : 非字符*/</div></pre></td></tr></table></figure></p>
+<p>search</p>
+<p>用途：字符串搜索</p>
+<p>-返回出现的位置<br>-字符串.search(正则)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//search : 正则去匹配字符串 , 如果匹配成功，就返回匹配成功的位置，如果匹配失败就返回 -1</div><div class="line">//search的写法 : 字符串.search(正则)</div><div class="line">//正则中的默认 : 是区分大小写的 </div><div class="line">//如果不区分大小写的话，在正则的最后加标识 i </div><div class="line">var str = &apos;abcdef&apos;;</div><div class="line">var re = /B/i;</div><div class="line">//var re = new RegExp(&apos;B&apos;,&apos;i&apos;);</div><div class="line">alert( str.search(re) );//1</div><div class="line">match</div></pre></td></tr></table></figure></p>
+<p>用途：获取匹配项目</p>
+<p>-返回数组<br>-量词+<br>-全局匹配g<br>-例子：找出所有数字<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">//match : 正则去匹配字符串，如果匹配成功，就返回匹配成功的数组，如果匹配不成功，就返回null</div><div class="line">//match的写法 : 字符串.match(正则)</div><div class="line">//正则默认：正则匹配成功就会结束，不会继续匹配 </div><div class="line">//如果想全部查找，就要加标识 g(全局匹配)</div><div class="line">//量词 : 匹配不确定的位置</div><div class="line">//+ : 至少出现一次</div><div class="line">var str = &apos;haj123sdk54hask33dkhalsd879&apos;;</div><div class="line">var re = /\d+/g;</div><div class="line">alert( str.match(re) );   //[123,54,33,879]</div><div class="line">replace</div></pre></td></tr></table></figure></p>
+<p>用途：替换所有匹配</p>
+<p>-返回替换后的字符串<br>-字符串.replace(正则)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//replace : 正则去匹配字符串，匹配成功的字符去替换成新的字符串</div><div class="line">//replace的写法 : 字符串.replace(正则,新的字符串)</div><div class="line">var str = &apos;aaa&apos;;</div><div class="line">var re = /a+/g;</div><div class="line">str = str.replace(re,&apos;b&apos;);</div><div class="line">alert(str);//b</div></pre></td></tr></table></figure></p>
+<p>下面给出一个敏感词过滤的例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">//菲称仁爱礁附近17艘中国船均在菲军监视之下</div><div class="line">//| : 或的意思</div><div class="line">//replace : 第二个参数：可以是字符串，也可以是一个回调函数</div><div class="line">window.onload = function()&#123;</div><div class="line">	var aT = document.getElementsByTagName(&apos;textarea&apos;);</div><div class="line">	var oInput = document.getElementById(&apos;input1&apos;);</div><div class="line">	</div><div class="line">	var re = /菲称|中国船|监视之下/g;</div><div class="line">	</div><div class="line">	oInput.onclick = function()&#123;</div><div class="line">		</div><div class="line">		 //aT[1].value = aT[0].value.replace(re,&apos;*&apos;);</div><div class="line">		 </div><div class="line">		 aT[1].value = aT[0].value.replace(re,function(str)&#123;</div><div class="line">		//函数的第一个参数：就是匹配成功的字符	 </div><div class="line">		</div><div class="line">			 //alert( str );</div><div class="line">			 </div><div class="line">			 var result = &apos;&apos;;</div><div class="line">			 </div><div class="line">			 for(var i=0;i&lt;str.length;i++)&#123;</div><div class="line">				 result += &apos;*&apos;;</div><div class="line">			 &#125;</div><div class="line">			 </div><div class="line">			 </div><div class="line">			 return result;</div><div class="line">			 </div><div class="line">		 &#125;);</div><div class="line">		</div><div class="line">	&#125;;</div><div class="line">	</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>子项问题</p>
+<p>把正则的整体叫做（母亲）<br>然后把左边第一个小括号里面的正则，叫做这个第一个子项(母亲的第一个孩子)<br>第二个小括号就是第二个孩子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var str = &apos;2013-6-7&apos;;</div><div class="line">var re = /(\d+)(-)/g;</div><div class="line">str = str.replace(re,function($0,$1,$2)&#123;</div><div class="line">	//第一个参数：$0（母亲）,第二个参数 : $1(第一个孩子)</div><div class="line">	//,第二个参数 : $1(第二个孩子)</div><div class="line">	</div><div class="line">	//alert( $2 );</div><div class="line">	</div><div class="line">	//return $1 + &apos;.&apos;;</div><div class="line">	</div><div class="line">	return $0.substring(0,$0.length-1) + &apos;.&apos;;</div><div class="line">	</div><div class="line">&#125;);</div><div class="line">alert( str );   //2013.6.7</div></pre></td></tr></table></figure></p>
+<p>var str = ‘abc’;<br>var re = /(a)(b)(c)/;<br>alert( str.match(re) );  //<a href="当match不加g的时候才可以获取到子项的集合">abc,a,b,c</a><br>字符类</p>
+<p>字符类 : 一组相似的元素 [] 中括号的整体代表一个字符<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var str = &apos;abdc&apos;;</div><div class="line">var re = /a[bde]c/;</div><div class="line">alert( re.test(str) );//false</div><div class="line">排除</div><div class="line"></div><div class="line">排除 : ^ 如果^写在[]里面的话，就代表排除的意思</div></pre></td></tr></table></figure></p>
+<p>var str = ‘abc’;<br>var re = /a[^bde]c/;<br>alert( re.test(str) );<br>var str = ‘abc’;<br>var re = /a[a-z0-9A-Z]c/;<br>alert( re.test(str) );//true<br>. : 任意字符 , . : 真正的点<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var str = &apos;a.c&apos;;</div><div class="line">var re = /a\.c/;</div><div class="line">alert(re.test(str));//true</div><div class="line">\b : 独立的部分 （ 起始，结束，空格 ）, \B : 非独立的部分</div></pre></td></tr></table></figure></p>
+<p>var str = ‘onetwo’;<br>var re = /o\b/;<br>alert( re.test(str) );//true<br>重复子项</p>
+<p>\1 : 重复的第一个子项<br>\2 : 重复的第二个子项<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var str = &apos;abca&apos;;</div><div class="line">var re = /(a)(b)(c)\2/;</div><div class="line">alert( re.test(str) );//false</div><div class="line">量词</div><div class="line"></div><div class="line">&#123;4,7&#125; : 最少出现4次，最多出现7次</div><div class="line">&#123;4,&#125; : 最少出现4次</div><div class="line">&#123;4&#125; : 正好出现4次</div><div class="line"></div><div class="line">: &#123;1,&#125; //\d&#123;1,&#125;</div><div class="line">? : &#123;0,1&#125; : 出现0次或者1次</div><div class="line">: &#123;0,&#125; : 至少出现0次</div><div class="line">^开始 $结束</div></pre></td></tr></table></figure></p>
+<p>//^ : 正则的最开始位置，就代笔起始的意思<br>//$ : 正则的最后位置 , 就代笔结束的意思<br>用RegExp构造函数来创建正则表达式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var str=&quot;catastrophe&quot;;</div><div class="line">var re=new RegExp(&quot;cat&quot;,&quot;g&quot;);</div><div class="line">re.test(str);//true</div><div class="line">注意</div><div class="line"></div><div class="line">字符\在字符串中通常被转义为\,而在正则表达式中就会被转义为\\</div><div class="line"></div><div class="line">字面量模式和等价的字符串的比较如下</div><div class="line"></div><div class="line">/[bc]at/ == “\[bc\]at”</div><div class="line">/.at/ ==”\.at”</div><div class="line">/\d.\d&#123;1,2&#125;/ == “\d.\d&#123;1,3&#125;”</div><div class="line">/\w\hello\123/ == “\w\\hello\\123”</div><div class="line">总之字面量的一个\ 会变成两个\</div></pre></td></tr></table></figure></p>
+<p>var str=’R23C45’;<br>var re1=/^R\d+C\d+$/;<br>var re2=new RegExp(“^R\d+C\d+$”);<br>var re3=new RegExp(“^R\d+C\d+$”);<br>alert(str.match(re1));//[R23C45]<br>alert(str.match(re2));//null<br>alert(str.match(re3));//[R23C45]<br>``` </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/05/08/正则表达式/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-继承的集中方式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/02/继承的集中方式/">常见排序方法</a>
+    </h1>
+  
+
+        
+        <a href="/2017/05/02/继承的集中方式/" class="archive-article-date">
+  	<time datetime="2017-05-02T14:23:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p> 继承的几种方法 2017-04-23</p>
+<p>一.组合继承</p>
+<p>思想：原型链实现对原型的属性和方法的继承，通过借用构造函数实现对实例属性的继承</p>
+<p>function SuperType(name){<br>    this.name=name;<br>    this.color=[“red”,”blue”];<br>}<br>SuperType.prototype.sayName=function(){<br>    alert(this.name);<br>}<br>function SubType(name,age){<br>    SubType.call(this,name);<br>    this.age=age;<br>}<br>SubType.prototype=new SuperType();<br>SubType.prototype.constructor=SubType;<br>SubType.prototype.sayAge=function(){<br>    alert(this.age);<br>}<br>二.原型式继承</p>
+<p>思想：原型可以基于一个已有的对象创建对象，首先需要有一个对象作为另一个对象的基础</p>
+<p>function object(o){<br>    function F(){}<br>    F.prototype=o;<br>    return new F();<br>}<br>var person={<br>    namae:’nike’,<br>    friends:[“shek”,”court”,”van”]<br>}<br>var anotherPerson=object(person);<br>anotherPerson.name=”Grag”;<br>anotherPerson.friends.push(“Rob”);<br>alert(person.friends);//[“shek”,”court”,”van”,”Rob”]<br>另一种：<br>var anotherPerson=Object.create(person,{<br>    name:{<br>        value:’Greg’<br>    }<br>});<br>alert(anotherPerson.name);//Greg<br>在没有必要新师动众的创建构造函数，而只想要一个对象与另一个对象保持类似时，原型继承可以胜任，但是包含引用类型值的属性始终都会共享</p>
+<p>三.寄生式继承</p>
+<p>创建一个用于封装继承过程的函数，该函数在内部以某种方式来争强对象，最后返回这个对象</p>
+<p>function createAnother(original){<br>    var clone=object(original);<br>    clone.sayHi=function(){<br>        alert(‘hi’);<br>    }<br>    return clone;<br>}<br>这种不能做到函数复用，效率低 </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/05/02/继承的集中方式/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+  
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2017/page/2/">2</a><a class="page-number" href="/archives/2017/page/3/">3</a><a class="page-number" href="/archives/2017/page/4/">4</a><a class="extend next" rel="next" href="/archives/2017/page/2/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 
@@ -318,9 +529,9 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: false,
+		isHome: true,
 		isPost: false,
-		isArchive: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

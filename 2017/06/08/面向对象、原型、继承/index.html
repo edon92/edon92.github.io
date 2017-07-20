@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017 | Edon</title>
+  <title>面向对象、原型、继承 | Edon</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Edon">
-<meta property="og:url" content="http://yoursite.com/archives/2017/index.html">
+  <meta name="description" content="js面向对象的几种模式 一：普通模式123456var obj = new Object();  //创建了一个空的对象obj.name = &amp;apos;小明&amp;apos;;  //属性obj.showName = function()&amp;#123;  //方法	alert(this.name);&amp;#125;;obj.showName(); 一次只能创建一个 二：工厂模式123456789101112">
+<meta name="keywords" content="javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面向对象、原型、继承">
+<meta property="og:url" content="http://yoursite.com/2017/06/08/面向对象、原型、继承/index.html">
 <meta property="og:site_name" content="Edon">
+<meta property="og:description" content="js面向对象的几种模式 一：普通模式123456var obj = new Object();  //创建了一个空的对象obj.name = &amp;apos;小明&amp;apos;;  //属性obj.showName = function()&amp;#123;  //方法	alert(this.name);&amp;#125;;obj.showName(); 一次只能创建一个 二：工厂模式123456789101112">
+<meta property="og:updated_time" content="2017-07-13T15:18:27.329Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Edon">
+<meta name="twitter:title" content="面向对象、原型、继承">
+<meta name="twitter:description" content="js面向对象的几种模式 一：普通模式123456var obj = new Object();  //创建了一个空的对象obj.name = &amp;apos;小明&amp;apos;;  //属性obj.showName = function()&amp;#123;  //方法	alert(this.name);&amp;#125;;obj.showName(); 一次只能创建一个 二：工厂模式123456789101112">
   
     <link rel="alternative" href="/atom.xml" title="Edon" type="application/atom+xml">
   
@@ -131,117 +136,59 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-面向对象、原型、继承" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      面向对象、原型、继承
+    </h1>
+  
+
+        
+        <a href="/2017/06/08/面向对象、原型、继承/" class="archive-article-date">
+  	<time datetime="2017-06-08T08:32:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-08</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>js面向对象的几种模式</p>
+<p>一：普通模式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var obj = new Object();  //创建了一个空的对象</div><div class="line">obj.name = &apos;小明&apos;;  //属性</div><div class="line">obj.showName = function()&#123;  //方法</div><div class="line">	alert(this.name);</div><div class="line">&#125;;</div><div class="line">obj.showName();</div></pre></td></tr></table></figure></p>
+<p>一次只能创建一个</p>
+<p>二：工厂模式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">//工厂方式 : 封装函数</div><div class="line">function createPerson(name)&#123;</div><div class="line">	</div><div class="line">	//1.原料</div><div class="line">	var obj = new Object();</div><div class="line">	//2.加工</div><div class="line">	obj.name = name;</div><div class="line">	obj.showName = function()&#123;</div><div class="line">		alert( this.name );</div><div class="line">	&#125;;</div><div class="line">	//3.出场</div><div class="line">	return obj;</div><div class="line">	</div><div class="line">&#125;</div><div class="line">var p1 = createPerson(&apos;小明&apos;);</div><div class="line">p1.showName();</div><div class="line">var p2 = createPerson(&apos;小强&apos;);</div><div class="line">p2.showName();</div></pre></td></tr></table></figure></p>
+<p>缺点：每个对象都有一份自己的属性和方法</p>
+<p>三：原型模式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">//当new去调用一个函数 : 这个时候函数中的this就是创建出来的对象,而且函数的的返回值直接就是this啦(隐式返回)</div><div class="line">//new后面调用的函数 : 叫做构造函数</div><div class="line">function CreatePerson(name)&#123;</div><div class="line">	</div><div class="line">	this.name = name;</div><div class="line">	</div><div class="line">&#125;</div><div class="line">CreatePerson.prototype.showName = function()&#123;</div><div class="line">	alert( this.name );</div><div class="line">&#125;;</div><div class="line">var p1 = new CreatePerson(&apos;小明&apos;);</div><div class="line">//p1.showName();</div><div class="line">var p2 = new CreatePerson(&apos;小强&apos;);</div><div class="line">//p2.showName();</div><div class="line">alert( p1.showName == p2.showName );  //true</div></pre></td></tr></table></figure></p>
+<p>注意：</p>
+<p>A.在27行中的结果是true，因为原型在内存中只有一份<br>B.当new去调用一个函数 : 这个时候函数中的this就是创建出来的对象,而且函数的的返回值直接就是this啦(隐式返回)<br>C.new后面调用的函数 : 叫做构造函数<br>一些常用的函数：</p>
+<p>1.hasOenProperty:查看是不是对象自身下面的属性<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//hasOwnProperty : 看是不是对象自身下面的属性</div><div class="line">var arr = [];</div><div class="line">arr.num = 10;</div><div class="line">Array.prototype.num2 = 20;</div><div class="line">//alert(  arr.hasOwnProperty(&apos;num&apos;)  );  //true</div><div class="line">alert(  arr.hasOwnProperty(&apos;num2&apos;)  );  //false</div><div class="line">2.constructor:查看对象的构找函数</div></pre></td></tr></table></figure></p>
+<p>function Aaa(){<br>}<br>var a1 = new Aaa();<br>alert( a1.constructor );  //Aaa<br>var arr = [];<br>alert( arr.constructor == Array );  //true*/<br>function Aaa(){<br>}<br>Aaa.prototype.constructor = Aaa;   //每一个函数都会有的，都是自动生成的<br>Aaa.prototype.constructor = Array;<br>constructor是在当前对象的原型下的属性</p>
+<p>3.instanceof:对象与构造函数在原型链上是否有关系<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//instanceof : 对象与构造函数在原型链上是否有关系</div><div class="line">function Aaa()&#123;</div><div class="line">&#125;</div><div class="line">var a1 = new Aaa();</div><div class="line">//alert( a1 instanceof Object );  //true</div><div class="line">var arr = [];</div><div class="line">alert( arr instanceof Array );</div><div class="line">4.toString:把对象转换成字符串</div></pre></td></tr></table></figure></p>
+<p>toString() : 系统对象下面都是自带的 , 自己写的对象都是通过原型链找object下面的<br>var arr = [];<br>alert( arr.toString == Object.prototype.toString ); //false<br>function Aaa(){<br>}<br>var a1 = new Aaa();<br>alert( a1.toString == Object.prototype.toString );  //true*<br>也就是说如果是自通对象，比如arr，toString就是在Array下面自带的<br>而自己写的对象比如a1，toString在object的原型下。</p>
+<p>注意：toString是最完美的类型判断的方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">//利用toString做类型的判断 : </div><div class="line">/*var arr = [];</div><div class="line">alert( Object.prototype.toString.call(arr) == &apos;[object Array]&apos; ); */ //&apos;[object Array]&apos;</div><div class="line">window.onload = function()&#123;</div><div class="line">	</div><div class="line">	var oF = document.createElement(&apos;iframe&apos;);</div><div class="line">	document.body.appendChild( oF );</div><div class="line">	</div><div class="line">	var ifArray = window.frames[0].Array;</div><div class="line">	</div><div class="line">	var arr = new ifArray();</div><div class="line">	</div><div class="line">	//alert( arr.constructor == Array );  //false</div><div class="line">	</div><div class="line">	//alert( arr instanceof Array );  //false</div><div class="line">	</div><div class="line">	alert( Object.prototype.toString.call(arr) == &apos;[object Array]&apos; );  //true</div><div class="line">	</div><div class="line">	</div><div class="line">&#125;;</div><div class="line">五:拷贝继承</div><div class="line"></div><div class="line">继承：子类不影响父类，子类可以继承父类的一些功能（代码复用）</div><div class="line">属性的继承：调用父类的构造函数call</div><div class="line">方法的继承：for in：拷贝继承（jqurey也是采用拷贝继承extend）</div></pre></td></tr></table></figure></p>
+<p>function CreatePerson(name,sex){   //父类<br>    this.name = name;<br>    this.sex = sex;<br>}<br>CreatePerson.prototype.showName = function(){<br>    alert( this.name );<br>};<br>var p1 = new CreatePerson(‘小明’,’男’);<br>//p1.showName();<br>function CreateStar(name,sex,job){  //子类</p>
+<pre><code>CreatePerson.call(this,name,sex);
+
+this.job = job;
+</code></pre><p>}<br>//CreateStar.prototype = CreatePerson.prototype;<br>extend( CreateStar.prototype , CreatePerson.prototype );<br>CreateStar.prototype.showJob = function(){<br>};<br>var p2 = new CreateStar(‘黄晓明’,’男’,’演员’);<br>p2.showName();<br>function extend(obj1,obj2){<br>    for(var attr in obj2){<br>        obj1[attr] = obj2[attr];<br>    }<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">看一个例子：</div></pre></td></tr></table></figure></p>
+<p>var a={<br>    name:’xiaoming’<br>};<br>var b=a;//b引用了a<br>b.name=’xiaoqiang’;<br>alert(a.name);//xiaoqiang<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">因为b是a的引用，为了解决这个问题</div></pre></td></tr></table></figure></p>
+<p>var b={};<br>extend(b,a);<br>b.name=’xiaoqiang’;<br>alert(a.name);//xiaoming<br>function extend(obj1,obj2){<br>    for(var attr in obj2){<br>        obj1[attr]=obj2[attr];<br>    }<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">这样写就是复制而不是引用</div><div class="line"></div><div class="line">五：类式继承</div></pre></td></tr></table></figure></p>
+<p>function Aaa(){<br>    this.name=’小明’;<br>}<br>Aaa.prototype.showName=function(){<br>    alert(this.name);<br>}<br>function Bbb(){<br>}<br>Bbb.prototype=new Aaa();//这句话就是类式继承<br>var b1=new Bbb();<br>b1.showName();<br>alert(b1.name);//小明<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">面试题：如何用一句话做到继承，指的就是类似继承，但是有很多问题，比如改变了b1的constructor指向，为了解决这个问题加一句话</div><div class="line">Bbb.prototype.constructor=Bbb;</div><div class="line">但是还是有很多问题</div><div class="line">类似继承最好是属性和方法分开继承</div><div class="line"></div><div class="line">属性的继承：</div></pre></td></tr></table></figure></p>
+<p>function Bbb(){<br>    Aaa.call(this);<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">方法的继承：</div></pre></td></tr></table></figure></p>
+<p>var F=function(){};<br>F.prototype=Aaa.prototype;<br>Bbb.prototype=new F();<br>Bbb.prototype.constructor=Bbb;<br>```<br>这才是完美结类式继承</p>
+<p>六.原型 与原型链的概念</p>
+<p>原型：我们创建的每个函数都有一个prototype（原型）属性，这个属性是一个指针，指向一个对象，这个对象包含可以由特定类型的所有实例共享的属性和方法<br>原型链：每个构造函数都有一个原型对象，原型对象都包含一个指向构造函数的指针，而实例都包含一个指向原型对象的内部指针，如果我们用原型对象等于另一个类型的实例，那么此时原型对象将包含一个指向另一个原型的指针<br>相应的另一个原型中也包含一个指向另一个构造函数的指针，以此类推，层层递进就构成了实例与原型的链条，这叫原型链</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/12/奶茶时/" class="archive-article-date">
-  	<time datetime="2017-07-11T16:28:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/12/奶茶时/">奶茶时</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/08/其实是逃避/" class="archive-article-date">
-  	<time datetime="2017-07-08T15:23:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/08/其实是逃避/">其实是逃避</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/08/自言自语/" class="archive-article-date">
-  	<time datetime="2017-07-07T18:23:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/08/自言自语/">自言自语</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/08/template - 副本 (11)/" class="archive-article-date">
-  	<time datetime="2017-07-07T18:23:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/08/template - 副本 (11)/">常见排序方法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -253,49 +200,55 @@
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/08/常见的排序方法/" class="archive-article-date">
-  	<time datetime="2017-06-08T11:40:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-08</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/08/常见的排序方法/">常见排序方法</a>
-    </h1>
+    <a href="/2017/06/08/常见的排序方法/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          常见排序方法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/06/08/fixed布局/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">flex布局</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
+  <div id="SOHUCS" sid="面向对象、原型、继承" ></div> 
+<script type="text/javascript"> 
+(function(){ 
+var appid = "true"; 
+var conf = "true"; 
+var width = window.innerWidth || document.documentElement.clientWidth; 
+if (width < 960) { 
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("//changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2017/page/2/">2</a><a class="page-number" href="/archives/2017/page/3/">3</a><a class="page-number" href="/archives/2017/page/4/">4</a><a class="extend next" rel="next" href="/archives/2017/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -319,8 +272,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

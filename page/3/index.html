@@ -6,11 +6,11 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017 | Edon</title>
+  <title>Edon</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="Edon">
-<meta property="og:url" content="http://yoursite.com/archives/2017/index.html">
+<meta property="og:url" content="http://yoursite.com/page/3/index.html">
 <meta property="og:site_name" content="Edon">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Edon">
@@ -133,115 +133,54 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-时间与时间戳" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/08/时间与时间戳/">时间Date</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/08/时间与时间戳/" class="archive-article-date">
+  	<time datetime="2017-04-08T15:12:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-08</time>
+</a>
+        
+      </header>
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一.时间对象Date</p>
+<p>数字的形式：new Date(2013,4,14,9,45,20);//页就是年月日时分秒<br>字符串的形式：new Date(‘November 27,2013 22:3:0’);//只有一个逗号，前面写月日，后面写年 时分秒，注意空格<br>字符串的形式：new Date(“2014-07-19 20:10:1”);</p>
+<p>未来时间与现在时间的差：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var inow=new Date();</div><div class="line">var iNew=new Date(November 27,2017 20:16:0);</div><div class="line"></div><div class="line">var t=Math.floor((inow-iNew)/1000);</div><div class="line"></div><div class="line">天：Math.floor(t/86400)</div><div class="line">时：Math.floor(t%86400/3600)</div><div class="line">分：Math.floor(t%86400%3600/60)</div><div class="line">秒：t%60</div></pre></td></tr></table></figure></p>
+<p>二.时间戳</p>
+<p>概念：从1970年1月1日至今的毫秒数，可以通过getTime()得到<br>注意是毫秒<br>有时候给出的时间戳是秒</p>
+<p>获取当前时间的时间戳的方法：</p>
+<p>1.var timestamp=Date.parse(new Date());<br>2.var timestamp=(new Date()).valueOf();<br>3.var timestamp=new Date().getTime();<br>第一种：获取的时间戳是把毫秒改成000显示，</p>
+<p>第二种和第三种是获取了当前毫秒的时间戳。</p>
+<p>三.Date对象下的时间转化为字符串的方法</p>
+<pre><code>var inow=new Date();
+console.log(inow.toString());//Sat Apr 22 2017 17:18:20 GMT+0800 (中国标准时间)
+console.log(inow.toLocaleString());//2017/4/22 下午5:18:20
+console.log(inow.toLocaleTimeString());//下午5:18:20
+console.log (inow.toLocaleDateString());//2017/4/22
+</code></pre><p>四.时间戳转化为其他形式日期的写法</p>
+<pre><code>var inow=new Date();
+console.log(inow.toLocaleString().replace(/上午|下午/g,&apos;&apos;));//2017/4/22 10:19:05
+console.log(inow.toLocaleString().replace(/上午|下午/g,&apos;&apos;).replace(/\//g,&apos;-&apos;));//2017-4-22 10:21:54
+</code></pre><p>五.一些常用的时间对象的函数</p>
+<p>getDate()返回月中的天<br>getDay()周中的星期几<br>getFullYear()四位以上数字的年份<br>getHours()时<br>getMinuters()分<br>getSeconds()秒<br>getMonth()月<br>以上函数都有对应的set函数<br>setDate() 设置 Date 对象中月的某一天 (1 ~ 31)。<br>setFullYear() 设置 Date 对象中的年份（四位数字）。<br>setHours() 设置 Date 对象中的小时 (0 ~ 23)。<br>setMinutes() 设置 Date 对象中的分钟 (0 ~ 59)。<br>setMonth() 设置 Date 对象中月份 (0 ~ 11)。<br>setSeconds() 设置 Date 对象中的秒钟 (0 ~ 59)。<br>setTime() setTime() 方法以毫秒设置 Date 对象。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/12/奶茶时/" class="archive-article-date">
-  	<time datetime="2017-07-11T16:28:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/12/奶茶时/">奶茶时</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/08/其实是逃避/" class="archive-article-date">
-  	<time datetime="2017-07-08T15:23:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/08/其实是逃避/">其实是逃避</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/08/自言自语/" class="archive-article-date">
-  	<time datetime="2017-07-07T18:23:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/08/自言自语/">自言自语</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/08/template - 副本 (11)/" class="archive-article-date">
-  	<time datetime="2017-07-07T18:23:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/08/template - 副本 (11)/">常见排序方法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -253,48 +192,287 @@
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/08/时间与时间戳/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+
+
+
+
   
+    <article id="post-淘宝放大镜效果" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/08/常见的排序方法/" class="archive-article-date">
-  	<time datetime="2017-06-08T11:40:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-08</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/08/常见的排序方法/">常见排序方法</a>
+      <a class="article-title" href="/2017/04/08/淘宝放大镜效果/">常见排序方法</a>
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
+        
+        <a href="/2017/04/08/淘宝放大镜效果/" class="archive-article-date">
+  	<time datetime="2017-04-07T18:23:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&lt;!doctype html&gt;</p>
+<html><br><head><br>    <meta charset="UTF-8"><br>    <title>放大镜</title><br>    <style><br>        <em> {<br>            margin: 0;<br>            padding: 0<br>        }<br>        body{<br>            width: 2000px;<br>        }<br>        #demo {<br>            display: block;<br>            width: 400px;<br>            height: 255px;<br>            margin: 50px;<br>            position: relative;<br>            border: 1px solid #ccc;<br>        }<br>        #small-box {<br>            position: relative;<br>            z-index: 1;<br>        }<br>        #float-box {<br>            display: none;<br>            width: 160px;<br>            height: 120px;<br>            position: absolute;<br>            background: #ffffcc;<br>            border: 1px solid #ccc;<br>            filter: alpha(opacity=50);<br>            opacity: 0.5;<br>        }<br>        #mark {<br>            position: absolute;<br>            display: block;<br>            width: 400px;<br>            height: 255px;<br>            background-color: #fff;<br>            filter: alpha(opacity=0);<br>            opacity: 0;<br>            z-index: 10;<br>        }<br>        #big-box {<br>            display: none;<br>            position: absolute;<br>            top: 0;<br>            left: 460px;<br>            width: 400px;<br>            height: 300px;<br>            overflow: hidden;<br>            border: 1px solid #ccc;<br>            z-index: 1;;<br>        }<br>        #big-box img {<br>            position: absolute;<br>        }<br>    </style><br>    <script src="http://libs.baidu.com/jquery/1.10.0/jquery.min.js"></script><br>    <script><br>        //页面加载完毕后执行<br>        window.onload = function () {<br>            var objDemo = document.getElementById(“demo”);<br>            var objSmallBox = document.getElementById(“small-box”);<br>            var objMark = document.getElementById(“mark”);<br>            var objFloatBox = document.getElementById(“float-box”);<br>            var objBigBox = document.getElementById(“big-box”);<br>            var objBigBoxImage = objBigBox.getElementsByTagName(“img”)[0];<br>            objMark.onmouseover = function () {<br>                objFloatBox.style.display = “block”<br>                objBigBox.style.display = “block”<br>            }<br>            objMark.onmouseout = function () {<br>                objFloatBox.style.display = “none”<br>                objBigBox.style.display = “none”<br>            }<br>            console.log(objDemo.clientWidth);<br>            console.log($(objDemo).offset().left);<br>            objMark.onmousemove = function (ev) {<br>                var _event = ev || window.event;  //兼容多个浏览器的event参数模式<br>                var left = _event.clientX - objDemo.offsetLeft - objSmallBox.offsetLeft - objFloatBox.offsetWidth / 2;<br>                var top = _event.clientY - objDemo.offsetTop - objSmallBox.offsetTop - objFloatBox.offsetHeight / 2;<br>                if (left &lt; 0) {<br>                    left = 0;<br>                } else if (left &gt; (objMark.offsetWidth - objFloatBox.offsetWidth)) {<br>                    left = objMark.offsetWidth - objFloatBox.offsetWidth;<br>                }<br>                if (top &lt; 0) {<br>                    top = 0;<br>                } else if (top &gt; (objMark.offsetHeight - objFloatBox.offsetHeight)) {<br>                    top = objMark.offsetHeight - objFloatBox.offsetHeight;<br>                }<br>                objFloatBox.style.left = left + “px”;   //oSmall.offsetLeft的值是相对什么而言<br>                objFloatBox.style.top = top + “px”;<br>                var percentX = left / (objMark.offsetWidth - objFloatBox.offsetWidth);<br>                var percentY = top / (objMark.offsetHeight - objFloatBox.offsetHeight);<br>                objBigBoxImage.style.left = -percentX </em> (objBigBoxImage.offsetWidth - objBigBox.offsetWidth) + “px”;<br>                objBigBoxImage.style.top = -percentY <em> (objBigBoxImage.offsetHeight - objBigBox.offsetHeight) + “px”;<br>            }<br>            $(‘#mark’).bind(“mouseover”,function(ev){<br>                $(‘#float-box’).show();<br>                $(‘#big-box’).show();<br>            });<br>            $(‘#mark’).bind(“mouseout”,function(ev){<br>                 $(‘#float-box’).hide();<br>                 $(‘#big-box’).hide();<br><br>            });<br>            $(‘#mark’).bind(“mousemove”,function(ev){<br>                    var ev=ev||window.event;<br>                    var Left=ev.pageX-$(‘#mark’).offset().left-$(‘#float-box’).width()/2;<br>                    var Top=ev.pageY-$(‘#mark’).offset().top-$(‘#float-box’).height()/2;<br>                    if(Left<0){
+                        Left=0;
+                    }else if(Left>$(‘#mark’).width()-$(‘#float-box’).width()){<br>                        Left=$(‘#mark’).width()-$(‘#float-box’).width();<br>                    }<br>                    if(Top<0){
+                        Top=0;
+                    }else if(Top>$(‘#mark’).height()-$(‘#float-box’).height()){<br>                        Top=$(‘#mark’).height()-$(‘#float-box’).height();<br>                    }<br>                    var percent=$(‘#mark’).width()/$(‘#float-box’).width();<br>                    $(‘#float-box’).css({“left”:Left+”px”,”top”:Top+”px”});<br>                    $(‘#big-box img’).css({“left”:-Left</em>percent+”px”,”top”:-Top*percent+”px”});<br>            });<br>    </script><br></head><br><body><br><div id="demo"><br>    <div id="small-box"><br>        <div id="mark"></div><br>        <div id="float-box"></div><br>        <img src="macbook-small.jpg"><br>    </div><br>    <div id="big-box"><br>        <img src="macbook-big.jpg"><br>    </div><br></div><br></body><br></html>  
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/08/淘宝放大镜效果/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+
+
+
+
   
+    <article id="post-ajax过程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
-    </div></section>
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/08/ajax过程/">ajax过程</a>
+    </h1>
   
 
+        
+        <a href="/2017/04/08/ajax过程/" class="archive-article-date">
+  	<time datetime="2017-04-07T17:23:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-08</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一.创建XMLHttpRequest对象</p>
+<p>ie浏览器和其他浏览器有差别<br>为了兼容该做如下写法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">if(window.XMLHttpRequest)&#123;</div><div class="line">	var xhr=new XMLHttpRequest();</div><div class="line">&#125;else&#123;</div><div class="line">	var xhr=new ActiveXObject();</div><div class="line">&#125;</div><div class="line">二.设置响应HTTP请求状态变化的函数</div><div class="line"></div><div class="line">发送HTTP请求的目的是为了接收从服务器中返回的数据。从创建XMLHttpRequest对象开始，到发送数据、接收数据、XMLHttpRequest对象一共会经历以下5中状态</div><div class="line"></div><div class="line">⑴未初始化状态。在创建完XMLHttpRequest对象时，该对象处于未初始化状态，此时XMLHttpRequest对象的readyState属性值为0。</div><div class="line"></div><div class="line">⑵初始化状态。在创建完XMLHttpRequest对象后使用open()方法创建了HTTP请求时，该对象处于初始化状态。此时XMLHttpRequest对象的readyState属性值为1。</div><div class="line"></div><div class="line">⑶发送数据状态。在初始化XMLHttpRequest对象后，使用send()方法发送数据时，该对象处于发送数据状态，此时XMLHttpRequest对象的readyState属性值为2。</div><div class="line"></div><div class="line">⑷接收数据状态。Web服务器接收完数据并进行处理完毕之后，向客户端传送返回的结果。此时，XMLHttpRequest对象处于接收数据状态，XMLHttpRequest对象的readyState属性值为3。</div><div class="line"></div><div class="line">⑸完成状态。XMLHttpRequest对象接收数据完毕后，进入完成状态，此时XMLHttpRequest对象的readyState属性值为4。此时接收完毕后的数据存入在客户端计算机的内存中，可以使用responseText属性或responseXml属性来获取数据。</div><div class="line"></div><div class="line">只有在XMLHttpRequest对象完成了以上5个步骤之后，才可以获取从服务器端返回的数据。因此，如果要获得从服务器端返回的数据，就必须要先判断XMLHttpRequest对象的状态。</div><div class="line"></div><div class="line">XMLHttpRequest对象可以响应readystatechange事件，该事件在XMLHttpRequest对象状态改变时（也就是readyState属性值改变时）激发。因此，可以通过该事件调用一个函数，并在该函数中判断XMLHttpRequest对象的readyState属性值。如果readyState属性值为4则使用responseText属性或responseXml属性来获取数据</div><div class="line">XMLHttpRequest对象的三个重要的属性：</div><div class="line"></div><div class="line">1.onreadystatechange 存储函数（或函数名），每当 readyState 属性改变时，就会调用该函数。</div><div class="line"></div><div class="line">2.readyState</div><div class="line">存有 XMLHttpRequest 的状态。从 0 到 4 发生变化。</div><div class="line">0: 请求未初始化</div><div class="line">1: 服务器连接已建立</div><div class="line">2: 请求已接收</div><div class="line">3: 请求处理中</div><div class="line">4: 请求已完成，且响应已就绪</div><div class="line"></div><div class="line">3.status 200: “OK”</div><div class="line">404: 未找到页面</div><div class="line"></div><div class="line">一般框架是这样写的</div></pre></td></tr></table></figure></p>
+<p>xmlhttp.onreadystatechange=function()<br>  {<br>  if (xmlhttp.readyState==4 &amp;&amp; xmlhttp.status==200)<br>    {<br>    document.getElementById(“myDiv”).innerHTML=xmlhttp.responseText;//在这里对请求回来的数据进行处理<br>    }<br>  }<br>服务器常用的状态码及其对应的含义：（感觉笔试老会考到）<br>200：服务器响应正常。<br>304：该资源在上次请求之后没有任何修改（这通常用于浏览器的缓存机制，使用GET请求时尤其需要注意）。<br>400：无法找到请求的资源。<br>401：访问资源的权限不够。<br>403：没有权限访问资源。<br>404：需要访问的资源不存在。<br>405：需要访问的资源被禁止。<br>407：访问的资源需要代理身份验证。<br>414：请求的URL太长。<br>500：服务器内部错误。</p>
+<p>三.向服务器发送请求</p>
+<p>使用open和send方法发送请求</p>
+<p>open：规定请求的类型，url以及是否异步处理请求<br>open(method,url,async):method为请求类型get和post<br>url：文件在服务器上的位置<br>async：true异步，false同步<br>send: 将请求发送到服务器<br>send（string）：string：仅仅用于post请求<br>get还是post？</p>
+<p>与post比get更快更简单，大部分情况都能用<br>下面情况只能用post：</p>
+<p>无法使用缓存文件(更新服务器上的文件或数据库)<br>向服务器发送大量数据(post没有数据限制)<br>发送包含为知字符的用户输入时，post比get更稳定可靠<br>对于post请求，如果希望像表单那样post数据，使用setRequestHeader()来添加HTTP头，然后在send方法中规定发送的数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">xmlhttp.open(&quot;POST&quot;,&quot;/try/ajax/demo_post2.php&quot;,true);</div><div class="line">xmlhttp.setRequestHeader(&quot;Content-type&quot;,&quot;application/x-www-form-urlencoded&quot;);</div><div class="line">xmlhttp.send(&quot;fname=Henry&amp;lname=Ford&quot;);</div><div class="line">setRequestHeader(header,value) :向请求添加 HTTP 头。</div><div class="line">header: 规定头的名称</div><div class="line">value: 规定头的值</div></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/08/ajax过程/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-时间委托的实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/01/时间委托的实现/">事件委托的实现</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/01/时间委托的实现/" class="archive-article-date">
+  	<time datetime="2017-04-01T15:11:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><ul class="ul-box"><br>    <li><a href="#">我是li-1</a></li><br>    <li><a href="#">我是li-2</a></li><br></ul></p>
+<script>
+    (function () {
+        var ulNode = document.querySelector('.ul-box');
+        ulNode.addEventListener('click', handleClick, false);
+        function handleClick(evt) {
+            evt.preventDefault();
+            var target = evt.target;
+            alert(target.innerHTML);
+        }
+    })()
+</script>  
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/01/时间委托的实现/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-原生JQ写法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/08/原生JQ写法/">原生JQ写法</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/08/原生JQ写法/" class="archive-article-date">
+  	<time datetime="2017-03-08T00:11:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>  原生jQ的写法</p>
+<p>$(function(){}) $(‘#div1’) $(‘.box’) $(‘p’)的实现<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div></pre></td><td class="code"><pre><div class="line">function $(vArg)&#123;</div><div class="line">	return new Vquery(vArg);</div><div class="line">&#125;</div><div class="line">function Vquery(vArg)&#123;</div><div class="line">	</div><div class="line">		this.elements = [];  //选择元素的这样一个集合</div><div class="line">	</div><div class="line">		//vArg : function</div><div class="line">		switch(typeof vArg)&#123;</div><div class="line">			case &apos;function&apos;:</div><div class="line">				//window.onload = vArg;</div><div class="line">				bindEvent(window,&apos;load&apos;,vArg);</div><div class="line">			break;</div><div class="line">			case &apos;string&apos;:</div><div class="line">				</div><div class="line">				switch( vArg.charAt(0) )&#123;</div><div class="line">					case &apos;#&apos;:   //id</div><div class="line">						 this.elements.push(document.getElementById(vArg.substring(1)));</div><div class="line">					break;</div><div class="line">					case &apos;.&apos;:   //class</div><div class="line">						this.elements = getByClass(document,vArg.substring(1));</div><div class="line">					break;</div><div class="line">					default:  //tag</div><div class="line">						this.elements = toArray(document.getElementsByTagName(vArg));</div><div class="line">					break;</div><div class="line">				&#125;</div><div class="line">				</div><div class="line">			break;</div><div class="line">			case &apos;object&apos;:</div><div class="line">				if( vArg.constructor == Array )&#123;</div><div class="line">					this.elements = vArg;</div><div class="line">				&#125;</div><div class="line">				else&#123;</div><div class="line">					this.elements.push( vArg );</div><div class="line">				&#125;</div><div class="line">			break;</div><div class="line">		&#125;</div><div class="line">	</div><div class="line">&#125;</div><div class="line">function bindEvent(obj,events,fn)&#123;</div><div class="line">	if(obj.addEventListener)&#123;</div><div class="line">		obj.addEventListener(events,function(ev)&#123;</div><div class="line">			//fn() -&gt; false</div><div class="line">			//fn() -&gt; undefined</div><div class="line">			</div><div class="line">			if( fn() == false )&#123;</div><div class="line">				ev.preventDefault();</div><div class="line">				ev.cancelBubble = true;</div><div class="line">			&#125;</div><div class="line">			</div><div class="line">		&#125;,false);</div><div class="line">	&#125;</div><div class="line">	else&#123;</div><div class="line">		obj.attachEvent(&apos;on&apos;+events,function()&#123;</div><div class="line">			</div><div class="line">			if( fn() == false )&#123;</div><div class="line">				window.event.cancelBubble = true;</div><div class="line">				return false;</div><div class="line">			&#125;</div><div class="line">			</div><div class="line">		&#125;);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">//下面是一些辅助函数</div><div class="line">function getByClass(oParent,sClass)&#123;</div><div class="line">	var arr = [];</div><div class="line">	var elems = oParent.getElementsByTagName(&apos;*&apos;);</div><div class="line">	</div><div class="line">	for(var i=0;i&lt;elems.length;i++)&#123;</div><div class="line">		if( elems[i].className == sClass )&#123;</div><div class="line">			arr.push( elems[i] );</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	return arr;</div><div class="line">	</div><div class="line">&#125;</div><div class="line">function toArray(elems)&#123;</div><div class="line">	var arr = [];</div><div class="line">	for(var i=0;i&lt;elems.length;i++)&#123;</div><div class="line">		arr.push(elems[i]);</div><div class="line">	&#125;</div><div class="line">	return arr;</div><div class="line">&#125;</div><div class="line">function getStyle(obj,attr)&#123;</div><div class="line">	if(obj.currentStyle)&#123;</div><div class="line">		return obj.currentStyle[attr];</div><div class="line">	&#125;</div><div class="line">	else&#123;</div><div class="line">		return getComputedStyle(obj,false)[attr];</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>$().css() $().html()的实现<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">Vquery.prototype.html = function(str)&#123;</div><div class="line">	if(str)&#123;  //设置</div><div class="line">		for(var i=0;i&lt;this.elements.length;i++)&#123;</div><div class="line">			this.elements[i].innerHTML = str;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	else&#123;   //获取</div><div class="line">		return this.elements[0].innerHTML;</div><div class="line">	&#125;</div><div class="line">	return this;</div><div class="line">&#125;;</div><div class="line">Vquery.prototype.click = function(fn)&#123;</div><div class="line">	</div><div class="line">	/*for(var i=0;i&lt;this.elements.length;i++)&#123;</div><div class="line">		bindEvent(this.elements[i],&apos;click&apos;,fn);</div><div class="line">	&#125;*/</div><div class="line">	</div><div class="line">	this.on(&apos;click&apos;,fn);</div><div class="line">	return this;</div><div class="line">	</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/08/原生JQ写法/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+  
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2017/page/2/">2</a><a class="page-number" href="/archives/2017/page/3/">3</a><a class="page-number" href="/archives/2017/page/4/">4</a><a class="extend next" rel="next" href="/archives/2017/page/2/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 
@@ -318,9 +496,9 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: false,
+		isHome: true,
 		isPost: false,
-		isArchive: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
