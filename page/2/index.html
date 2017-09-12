@@ -42,7 +42,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="http://a1.qpic.cn/psb?/V11tgLMJ04D5Tl/vOfb8MVncLgAsDfRo4cpLtYuRciqRrkXpKEPOIcneRs!/b/dGsBAAAAAAAA&amp;bo=IAMgAwAAAAARBzA!&amp;rf=viewer_4" class="js-avatar">
+			<img src="321.jpg" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">Edon</a></h1>
@@ -90,7 +90,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="http://a1.qpic.cn/psb?/V11tgLMJ04D5Tl/vOfb8MVncLgAsDfRo4cpLtYuRciqRrkXpKEPOIcneRs!/b/dGsBAAAAAAAA&amp;bo=IAMgAwAAAAARBzA!&amp;rf=viewer_4" class="js-avatar">
+				<img src="321.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">Edon</h1>
@@ -132,6 +132,88 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-fixed布局" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/08/fixed布局/">flex布局</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/08/fixed布局/" class="archive-article-date">
+  	<time datetime="2017-06-08T01:23:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>flex布局也就是弹性布局</p>
+<p>由于觉得阮一峰老师的博客已经写得非常详细，而且通俗易懂，这里附上他的链接，以后方便复习</p>
+<p> <a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="external">布局教程：语法篇</a><br> <a href="http://www.ruanyifeng.com/blog/2015/07/flex-examples.html" target="_blank" rel="external">布局教程：实例篇</a></p>
+<p>采用Flex布局的元素，称为Flex容器（flex container），简称”容器”。它的所有子元素自动成为容器成员，称为Flex项目（flex item），简称”项目”。<br>容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。主轴的开始位置（与边框的交叉点）叫做main start，结束位置叫做main end；交叉轴的开始位置叫做cross start，结束位置叫做cross end。<br>项目默认沿主轴排列。单个项目占据的主轴空间叫做main size，占据的交叉轴空间叫做cross size。</p>
+<p>使用flex布局应该注意些什么</p>
+<p>1.Webkit内核的浏览器，必须加上-webkit前缀。<br>2.任何一个容器都可以指定为Flex布局。行内元素也可以使用Flex布局。<br>3.设为Flex布局以后，子元素的float、clear和vertical-align属性将失效。<br>容器的属性</p>
+<p>以下6个属性设置在容器上。</p>
+<p>1.flex-direction<br>2.flex-wrap<br>3.flex-flow<br>4.justify-content<br>5.align-items<br>6.align-content<br>flex-direction属性<br>决定主轴的方向（即项目的排列方向）。<br>.box {<br>flex-direction: row | row-reverse | column | column-reverse;<br>}</p>
+<p>flex-wrap属性<br>默认情况下，项目都排在一条线（又称”轴线”）上。flex-wrap属性定义，如果一条轴线排不下，如何换行。<br>.box{<br>flex-wrap: nowrap | wrap | wrap-reverse;<br>}</p>
+<p>flex-flow属性<br>是flex-direction属性和flex-wrap属性的简写形式，默认值为row nowrap</p>
+<p>justify-content属性<br>justify-content属性定义了项目在主轴上的对齐方式。<br>.box {<br>justify-content: flex-start | flex-end | center | space-between | space-around;<br>}</p>
+<p>align-items属性<br>align-items属性定义项目在交叉轴上如何对齐。</p>
+<p>.box {<br>align-items: flex-start | flex-end | center | baseline | stretch;<br>}</p>
+<p>baseline: 项目的第一行文字的基线对齐。<br>stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。</p>
+<p>align-content属性<br>align-content属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。</p>
+<p>.box {<br>align-content: flex-start | flex-end | center | space-between | space-around | stretch;<br>}</p>
+<p>stretch（默认值）：轴线占满整个交叉轴。</p>
+<p>以下6个属性设置在项目上。</p>
+<p>1.order<br>2.flex-grow<br>3.flex-shrink<br>4.flex-basis<br>5.flex<br>6.align-self<br>order属性<br>order属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。</p>
+<p>flex-grow属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。</p>
+<p>flex-shrink属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。</p>
+<p>flex-basis属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。</p>
+<p>flex属性<br>flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。</p>
+<p>align-self属性<br>align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。  </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/08/fixed布局/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
   
     <article id="post-cookies，sessionStorage和localStorage的区别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -416,72 +498,9 @@ console.log(inow.toLocaleString().replace(/上午|下午/g,&apos;&apos;).replace
 
 
   
-    <article id="post-淘宝放大镜效果" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/08/淘宝放大镜效果/">常见排序方法</a>
-    </h1>
-  
-
-        
-        <a href="/2017/04/08/淘宝放大镜效果/" class="archive-article-date">
-  	<time datetime="2017-04-07T18:23:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&lt;!doctype html&gt;</p>
-<html><br><head><br>    <meta charset="UTF-8"><br>    <title>放大镜</title><br>    <style><br>        <em> {<br>            margin: 0;<br>            padding: 0<br>        }<br>        body{<br>            width: 2000px;<br>        }<br>        #demo {<br>            display: block;<br>            width: 400px;<br>            height: 255px;<br>            margin: 50px;<br>            position: relative;<br>            border: 1px solid #ccc;<br>        }<br>        #small-box {<br>            position: relative;<br>            z-index: 1;<br>        }<br>        #float-box {<br>            display: none;<br>            width: 160px;<br>            height: 120px;<br>            position: absolute;<br>            background: #ffffcc;<br>            border: 1px solid #ccc;<br>            filter: alpha(opacity=50);<br>            opacity: 0.5;<br>        }<br>        #mark {<br>            position: absolute;<br>            display: block;<br>            width: 400px;<br>            height: 255px;<br>            background-color: #fff;<br>            filter: alpha(opacity=0);<br>            opacity: 0;<br>            z-index: 10;<br>        }<br>        #big-box {<br>            display: none;<br>            position: absolute;<br>            top: 0;<br>            left: 460px;<br>            width: 400px;<br>            height: 300px;<br>            overflow: hidden;<br>            border: 1px solid #ccc;<br>            z-index: 1;;<br>        }<br>        #big-box img {<br>            position: absolute;<br>        }<br>    </style><br>    <script src="http://libs.baidu.com/jquery/1.10.0/jquery.min.js"></script><br>    <script><br>        //页面加载完毕后执行<br>        window.onload = function () {<br>            var objDemo = document.getElementById(“demo”);<br>            var objSmallBox = document.getElementById(“small-box”);<br>            var objMark = document.getElementById(“mark”);<br>            var objFloatBox = document.getElementById(“float-box”);<br>            var objBigBox = document.getElementById(“big-box”);<br>            var objBigBoxImage = objBigBox.getElementsByTagName(“img”)[0];<br>            objMark.onmouseover = function () {<br>                objFloatBox.style.display = “block”<br>                objBigBox.style.display = “block”<br>            }<br>            objMark.onmouseout = function () {<br>                objFloatBox.style.display = “none”<br>                objBigBox.style.display = “none”<br>            }<br>            console.log(objDemo.clientWidth);<br>            console.log($(objDemo).offset().left);<br>            objMark.onmousemove = function (ev) {<br>                var _event = ev || window.event;  //兼容多个浏览器的event参数模式<br>                var left = _event.clientX - objDemo.offsetLeft - objSmallBox.offsetLeft - objFloatBox.offsetWidth / 2;<br>                var top = _event.clientY - objDemo.offsetTop - objSmallBox.offsetTop - objFloatBox.offsetHeight / 2;<br>                if (left &lt; 0) {<br>                    left = 0;<br>                } else if (left &gt; (objMark.offsetWidth - objFloatBox.offsetWidth)) {<br>                    left = objMark.offsetWidth - objFloatBox.offsetWidth;<br>                }<br>                if (top &lt; 0) {<br>                    top = 0;<br>                } else if (top &gt; (objMark.offsetHeight - objFloatBox.offsetHeight)) {<br>                    top = objMark.offsetHeight - objFloatBox.offsetHeight;<br>                }<br>                objFloatBox.style.left = left + “px”;   //oSmall.offsetLeft的值是相对什么而言<br>                objFloatBox.style.top = top + “px”;<br>                var percentX = left / (objMark.offsetWidth - objFloatBox.offsetWidth);<br>                var percentY = top / (objMark.offsetHeight - objFloatBox.offsetHeight);<br>                objBigBoxImage.style.left = -percentX </em> (objBigBoxImage.offsetWidth - objBigBox.offsetWidth) + “px”;<br>                objBigBoxImage.style.top = -percentY <em> (objBigBoxImage.offsetHeight - objBigBox.offsetHeight) + “px”;<br>            }<br>            $(‘#mark’).bind(“mouseover”,function(ev){<br>                $(‘#float-box’).show();<br>                $(‘#big-box’).show();<br>            });<br>            $(‘#mark’).bind(“mouseout”,function(ev){<br>                 $(‘#float-box’).hide();<br>                 $(‘#big-box’).hide();<br><br>            });<br>            $(‘#mark’).bind(“mousemove”,function(ev){<br>                    var ev=ev||window.event;<br>                    var Left=ev.pageX-$(‘#mark’).offset().left-$(‘#float-box’).width()/2;<br>                    var Top=ev.pageY-$(‘#mark’).offset().top-$(‘#float-box’).height()/2;<br>                    if(Left<0){
-                        Left=0;
-                    }else if(Left>$(‘#mark’).width()-$(‘#float-box’).width()){<br>                        Left=$(‘#mark’).width()-$(‘#float-box’).width();<br>                    }<br>                    if(Top<0){
-                        Top=0;
-                    }else if(Top>$(‘#mark’).height()-$(‘#float-box’).height()){<br>                        Top=$(‘#mark’).height()-$(‘#float-box’).height();<br>                    }<br>                    var percent=$(‘#mark’).width()/$(‘#float-box’).width();<br>                    $(‘#float-box’).css({“left”:Left+”px”,”top”:Top+”px”});<br>                    $(‘#big-box img’).css({“left”:-Left</em>percent+”px”,”top”:-Top*percent+”px”});<br>            });<br>    </script><br></head><br><body><br><div id="demo"><br>    <div id="small-box"><br>        <div id="mark"></div><br>        <div id="float-box"></div><br>        <img src="macbook-small.jpg"><br>    </div><br>    <div id="big-box"><br>        <img src="macbook-big.jpg"><br>    </div><br></div><br></body><br></html>  
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/04/08/淘宝放大镜效果/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 
@@ -572,6 +591,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">码农手记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">读书</a>
               </li>
             
             <div class="clearfix"></div>
